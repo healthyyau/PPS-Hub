@@ -1,0 +1,83 @@
+{
+  "name": "Design Tokens",
+  "collections": {
+    "Primitives": {
+      "modes": {
+        "Mode 1": [
+          "Primitives.Mode 1.tokens.json"
+        ]
+      }
+    },
+    "Responsive ": {
+      "modes": {
+        "Desktop": [
+          "Responsive .Desktop.tokens.json"
+        ],
+        "Tablet": [
+          "Responsive .Tablet.tokens.json"
+        ],
+        "Mobile": [
+          "Responsive .Mobile.tokens.json"
+        ]
+      }
+    },
+    "Sematic colors": {
+      "modes": {
+        "Mode 1": [
+          "Sematic colors.Mode 1.tokens.json"
+        ]
+      }
+    },
+    "Semantic typography": {
+      "modes": {
+        "Desktop": [
+          "Semantic typography.Desktop.tokens.json"
+        ],
+        "Mobile": [
+          "Semantic typography.Mobile.tokens.json"
+        ],
+        "Desktop Arabic": [
+          "Semantic typography.Desktop Arabic.tokens.json"
+        ],
+        "Mobile Arabic": [
+          "Semantic typography.Mobile Arabic.tokens.json"
+        ]
+      }
+    },
+    "Semantic spacing": {
+      "modes": {
+        "Default": [
+          "Semantic spacing.Default.tokens.json"
+        ]
+      }
+    },
+    "Semantic effect": {
+      "modes": {
+        "Mode 1": [
+          "Semantic effect.Mode 1.tokens.json"
+        ]
+      }
+    },
+    "Mode": {
+      "modes": {
+        "Mode 1": [
+          "Mode.Mode 1.tokens.json"
+        ]
+      }
+    }
+  },
+  "styles": {
+    "text": [
+      "text.styles.tokens.json"
+    ],
+    "effect": [
+      "effect.styles.tokens.json"
+    ],
+    "color": [
+      "color.styles.tokens.json"
+    ],
+    "grid": [
+      "grid.styles.tokens.json"
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "canvas": {
+    "viewport-width": {
+      "$type": "dimension",
+      "$value": "{dimensions.screens.xs}"
+    },
+    "viewport-height": {
+      "$type": "dimension",
+      "$value": "844px"
+    },
+    "canvas-columns": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.1}"
+    }
+  },
+  "theme-spacing": {
+    "layout-gutter": {
+      "$type": "dimension",
+      "$value": "{scale.sm}"
+    },
+    "layout-gutter-stack-lg": {
+      "$type": "dimension",
+      "$value": "{scale.4xl}"
+    },
+    "layout-gutter-stack-md": {
+      "$type": "dimension",
+      "$value": "{scale.4xl}"
+    },
+    "layout-gutter-stack-sm": {
+      "$type": "dimension",
+      "$value": "{scale.sm}"
+    },
+    "layout-margin": {
+      "$type": "dimension",
+      "$value": "{scale.xl}"
+    },
+    "layout-pad": {
+      "$type": "dimension",
+      "$value": "{scale.6xl}"
+    },
+    "layout-gap-lg": {
+      "$type": "dimension",
+      "$value": "{scale.6xl}"
+    },
+    "layout-gap-md": {
+      "$type": "dimension",
+      "$value": "{scale.2xl}"
+    },
+    "content-pad-lg": {
+      "$type": "dimension",
+      "$value": "{scale.2xl}"
+    },
+    "content-pad-md": {
+      "$type": "dimension",
+      "$value": "{scale.2xl}"
+    },
+    "content-pad-sm": {
+      "$type": "dimension",
+      "$value": "{scale.2xl}"
+    },
+    "content-gap-lg": {
+      "$type": "dimension",
+      "$value": "{scale.4xl}"
+    },
+    "content-gap-md": {
+      "$type": "dimension",
+      "$value": "{scale.2xl}"
+    },
+    "content-gap-sm": {
+      "$type": "dimension",
+      "$value": "{scale.2xl}"
+    },
+    "content-gap-xs": {
+      "$type": "dimension",
+      "$value": "{scale.lg}"
+    }
+  }
+}
