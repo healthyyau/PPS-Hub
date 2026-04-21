@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './TradingAccounts.module.css';
 
 const imgUSFlag = 'https://www.figma.com/api/mcp/asset/dc667e21-e248-4c13-9ae3-40d98350585a';
@@ -81,23 +82,66 @@ const MORE_MENU_ITEMS = [
   },
 ];
 
-function MoreMenu({ size }: { size?: 'sm' }) {
+function MoreMenu({ size, items = MORE_MENU_ITEMS }: { size?: 'sm'; items?: typeof MORE_MENU_ITEMS }) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [rect, setRect] = useState<DOMRect | null>(null);
+  const isList = size === 'sm';
 
   useEffect(() => {
     if (!open) return;
     function handleOutside(e: MouseEvent) {
-      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false);
+      const t = e.target as Node;
+      if (!wrapRef.current?.contains(t) && !dropdownRef.current?.contains(t)) setOpen(false);
     }
     document.addEventListener('mousedown', handleOutside);
     return () => document.removeEventListener('mousedown', handleOutside);
   }, [open]);
 
+  useLayoutEffect(() => {
+    if (!open || !isList) return;
+    const update = () => {
+      if (btnRef.current) setRect(btnRef.current.getBoundingClientRect());
+    };
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('scroll', update, true);
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update, true);
+    };
+  }, [open, isList]);
+
+  const dropdown = (
+    <div
+      ref={dropdownRef}
+      className={styles.moreDropdown}
+      style={isList && rect ? {
+        position: 'fixed',
+        top: rect.bottom + 6,
+        right: window.innerWidth - rect.right,
+      } : undefined}
+    >
+      {items.map(item => (
+        <button
+          key={item.label}
+          className={styles.moreMenuItem}
+          onClick={() => setOpen(false)}
+        >
+          <span className={styles.moreMenuIcon}>{item.icon}</span>
+          <span className={styles.moreMenuLabel}>{item.label}</span>
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <div className={styles.moreWrap} ref={wrapRef}>
       <button
-        className={size === 'sm' ? styles.moreBtnSm : styles.moreBtn}
+        ref={btnRef}
+        className={isList ? styles.moreBtnSm : styles.moreBtn}
         aria-label="More options"
         aria-expanded={open}
         onClick={() => setOpen(o => !o)}
@@ -109,19 +153,9 @@ function MoreMenu({ size }: { size?: 'sm' }) {
         </svg>
       </button>
 
-      {open && (
-        <div className={`${styles.moreDropdown}${size === 'sm' ? ` ${styles.moreDropdownLeft}` : ''}`}>
-          {MORE_MENU_ITEMS.map(item => (
-            <button
-              key={item.label}
-              className={styles.moreMenuItem}
-              onClick={() => setOpen(false)}
-            >
-              <span className={styles.moreMenuIcon}>{item.icon}</span>
-              <span className={styles.moreMenuLabel}>{item.label}</span>
-            </button>
-          ))}
-        </div>
+      {open && (isList
+        ? (rect && createPortal(dropdown, document.body))
+        : dropdown
       )}
     </div>
   );
@@ -198,14 +232,32 @@ function AccountRow({ account }: { account: Account }) {
   const { name, accountId, balance, currency, flagSrc, mode, platform, platformIcon, leverage } = account;
   const [rowMoreOpen, setRowMoreOpen] = useState(false);
   const rowMoreRef = useRef<HTMLDivElement>(null);
+  const rowMoreBtnRef = useRef<HTMLButtonElement>(null);
+  const rowMoreDropdownRef = useRef<HTMLDivElement>(null);
+  const [rowMoreRect, setRowMoreRect] = useState<DOMRect | null>(null);
 
   useEffect(() => {
     if (!rowMoreOpen) return;
     function handleOutside(e: MouseEvent) {
-      if (rowMoreRef.current && !rowMoreRef.current.contains(e.target as Node)) setRowMoreOpen(false);
+      const t = e.target as Node;
+      if (!rowMoreRef.current?.contains(t) && !rowMoreDropdownRef.current?.contains(t)) setRowMoreOpen(false);
     }
     document.addEventListener('mousedown', handleOutside);
     return () => document.removeEventListener('mousedown', handleOutside);
+  }, [rowMoreOpen]);
+
+  useLayoutEffect(() => {
+    if (!rowMoreOpen) return;
+    const update = () => {
+      if (rowMoreBtnRef.current) setRowMoreRect(rowMoreBtnRef.current.getBoundingClientRect());
+    };
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('scroll', update, true);
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update, true);
+    };
   }, [rowMoreOpen]);
 
   return (
@@ -258,12 +310,13 @@ function AccountRow({ account }: { account: Account }) {
             </svg>
             <span>Withdraw</span>
           </button>
-          <MoreMenu size="sm" />
+          <MoreMenu size="sm" items={MORE_MENU_ITEMS.filter(i => i.label !== 'Withdraw')} />
         </div>
 
         {/* Compact layout: single … button with all actions */}
         <div className={`${styles.moreWrap} ${styles.listActionsCompactMore}`} ref={rowMoreRef}>
           <button
+            ref={rowMoreBtnRef}
             className={styles.moreBtnSm}
             aria-label="More options"
             aria-expanded={rowMoreOpen}
@@ -275,8 +328,16 @@ function AccountRow({ account }: { account: Account }) {
               <circle cx="13" cy="8" r="1.5" fill="currentColor" />
             </svg>
           </button>
-          {rowMoreOpen && (
-            <div className={`${styles.moreDropdown} ${styles.moreDropdownLeft}`}>
+          {rowMoreOpen && rowMoreRect && createPortal(
+            <div
+              ref={rowMoreDropdownRef}
+              className={styles.moreDropdown}
+              style={{
+                position: 'fixed',
+                top: rowMoreRect.bottom + 6,
+                right: window.innerWidth - rowMoreRect.right,
+              }}
+            >
               <button className={styles.moreMenuItem} onClick={() => setRowMoreOpen(false)}>
                 <span className={styles.moreMenuIcon}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -291,7 +352,8 @@ function AccountRow({ account }: { account: Account }) {
                   <span className={styles.moreMenuLabel}>{item.label}</span>
                 </button>
               ))}
-            </div>
+            </div>,
+            document.body
           )}
         </div>
       </div>

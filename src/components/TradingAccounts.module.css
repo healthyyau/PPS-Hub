@@ -522,13 +522,7 @@
   padding: 4px;
   display: flex;
   flex-direction: column;
-  z-index: 300;
-}
-
-/* Flip to right-align for list view rows */
-.moreDropdownLeft {
-  right: auto;
-  left: 0;
+  z-index: 1000;
 }
 
 .moreMenuItem {
@@ -646,6 +640,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  min-width: max-content;
   border-bottom: 1px solid var(--color-border-subtle);
   padding: 0;
 }
@@ -654,12 +649,24 @@
   display: flex;
   align-items: center;
   width: 100%;
+  min-width: max-content;
   border-bottom: 1px solid var(--color-border-subtle);
   transition: background 150ms ease;
+  position: relative;
+}
+
+.listRow:last-child {
+  border-bottom: none;
 }
 
 .listRow:hover {
   background: var(--color-background-bg-surface);
+}
+
+/* Lift the row above its siblings while a dropdown is open so the
+   menu isn't covered by the next row's sticky actions cell. */
+.listRow:has([aria-expanded="true"]) {
+  z-index: 20;
 }
 
 .listHeaderText {
@@ -670,11 +677,14 @@
   white-space: nowrap;
 }
 
-/* Fixed-width cells */
+/* Flexible cells — grow to share extra space by their flex ratios,
+   shrink down to min-width, and only push the row into horizontal
+   overflow once their content can't be compressed further.
+   flex-basis: 0 (not auto) keeps columns aligned across all rows
+   by sizing purely from the grow ratio, independent of content. */
 .listCellName {
-  width: 200px;
+  flex: 3 1 0;
   min-width: 164px;
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -682,40 +692,58 @@
 }
 
 .listCell {
-  width: 120px;
-  min-width: 72px;
-  flex-shrink: 0;
+  flex: 2 1 0;
+  min-width: 80px;
   display: flex;
   align-items: center;
   padding: 20px 8px;
 }
 
 .listCellPlatform {
-  width: 160px;
-  min-width: 72px;
-  flex-shrink: 0;
+  flex: 2 1 0;
+  min-width: 120px;
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 20px 8px;
 }
 
-/* Actions column — sticky on the right */
+/* Actions column — sticky on the right.
+   Uses natural width + margin-left:auto so left columns overflow horizontally
+   instead of compressing, while actions stays glued to the right edge.
+   min-width ensures the header's cell has the same extent as the row's
+   action buttons below, so sticky behavior is consistent for both. */
 .listCellActions {
-  flex: 1;
-  min-width: 0;
+  --_actions-bg: var(--color-background-bg-inverse);
+  flex: 0 0 auto;
+  min-width: 148px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
   padding: 16px 12px;
+  margin-left: auto;
   position: sticky;
   right: 0;
-  background: var(--color-background-bg-inverse);
+  background: var(--_actions-bg);
+  z-index: 2;
+}
+
+/* White fade gradient on the left edge of the sticky actions column
+   so scrolled content underneath disappears smoothly into the column. */
+.listCellActions::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 40px;
+  background: linear-gradient(to right, transparent, var(--_actions-bg));
+  pointer-events: none;
 }
 
 .listRow:hover .listCellActions {
-  background: var(--color-background-bg-surface);
+  --_actions-bg: var(--color-background-bg-surface);
 }
 
 /* Full group: Deposit + Withdraw + MoreMenu — visible on wide layouts */
@@ -730,10 +758,26 @@
   display: none;
 }
 
-/* Collapse to compact when main canvas is narrow */
-@container main (max-width: 780px) {
+/* Actions cell min-width for full mode — keeps header extent matched
+   with rows so sticky-right behaviour is consistent. */
+.listCellActions { min-width: 344px; }
+
+/* Collapse action buttons to Trade + … only on mobile viewports.
+   On desktop (>768px), the full action set always shows — if the
+   main canvas is narrow, the table just scrolls horizontally instead. */
+@media (max-width: 768px) {
+  .listCellActions { min-width: 148px; }
   .listActionsFullGroup { display: none; }
   .listActionsCompactMore { display: flex; }
+}
+
+/* Also collapse when the side drawer is open on screens below 1440px —
+   the drawer eats enough of the main canvas that keeping the full
+   action set would just force horizontal scrolling. */
+@media (max-width: 1439px) {
+  .sectionCompact .listCellActions { min-width: 148px; }
+  .sectionCompact .listActionsFullGroup { display: none; }
+  .sectionCompact .listActionsCompactMore { display: flex; }
 }
 
 /* Flag */
@@ -788,9 +832,10 @@
 }
 
 .listPlatformName {
-  font-family: var(--typography-label-sm-font-family);
-  font-size: 14px;
-  font-weight: var(--typography-label-sm-font-weight);
+  font-family: var(--typography-body-sm-font-family);
+  font-size: var(--typography-body-sm-font-size);
+  font-weight: var(--typography-body-sm-font-weight);
+  line-height: var(--typography-body-sm-line-height);
   color: var(--color-text-default);
   white-space: nowrap;
   overflow: hidden;
