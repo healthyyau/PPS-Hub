@@ -1,0 +1,236 @@
+{
+  "h1": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-8xl}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.bold}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.25}"
+    }
+  },
+  "h2": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-7xl}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.bold}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.22}"
+    }
+  },
+  "h3": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-5xl}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.bold}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.14}"
+    }
+  },
+  "h4": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-3xl}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.bold}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.9}"
+    }
+  },
+  "h5": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-2xl}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.bold}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.7}"
+    }
+  },
+  "h6": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-xl}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.bold}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.6}"
+    }
+  },
+  "body-lg": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-lg}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.regular}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.6}"
+    }
+  },
+  "body-md": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-base}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.regular}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.6}"
+    }
+  },
+  "body-sm": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-sm}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.regular}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.5}"
+    }
+  },
+  "body-xs": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-xs}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.regular}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.4}"
+    }
+  },
+  "label-lg": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-lg}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.semi-bold}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.6}"
+    }
+  },
+  "label-md": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-base}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.semi-bold}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.6}"
+    }
+  },
+  "label-sm": {
+    "font-family": {
+      "$type": "string",
+      "$value": "{font.font-family.Noto_Sans_Arabic}"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "{font.font-size.text-sm}"
+    },
+    "font-weight": {
+      "$type": "dimension",
+      "$value": "{font.font-weight.semi-bold}"
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$value": "{dimensions.spacing.5}"
+    }
+  }
+}

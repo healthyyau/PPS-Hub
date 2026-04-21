@@ -1,0 +1,163 @@
+/* base.css — Global reset and typography defaults
+   Imported once in main.tsx, after tokens.css.
+   All values use design tokens — no hardcoded values. */
+
+/* ─── Font loading ─── */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Noto+Sans+TC:wght@400;600;700&display=swap');
+
+/* ─── Box model reset ─── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Root / body ─── */
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--typography-body-md-font-family);
+  font-size: var(--typography-body-md-font-size);
+  font-weight: var(--typography-body-md-font-weight);
+  line-height: var(--typography-body-md-line-height);
+  color: var(--color-text-default);
+  background: var(--color-background-bg-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Headings ─── */
+
+h1 {
+  font-family: var(--typography-h1-font-family);
+  font-size: var(--typography-h1-font-size);
+  font-weight: var(--typography-h1-font-weight);
+  line-height: var(--typography-h1-line-height);
+  color: var(--color-text-default);
+}
+
+h2 {
+  font-family: var(--typography-h2-font-family);
+  font-size: var(--typography-h2-font-size);
+  font-weight: var(--typography-h2-font-weight);
+  line-height: var(--typography-h2-line-height);
+  color: var(--color-text-default);
+}
+
+h3 {
+  font-family: var(--typography-h3-font-family);
+  font-size: var(--typography-h3-font-size);
+  font-weight: var(--typography-h3-font-weight);
+  line-height: var(--typography-h3-line-height);
+  color: var(--color-text-default);
+}
+
+h4 {
+  font-family: var(--typography-h4-font-family);
+  font-size: var(--typography-h4-font-size);
+  font-weight: var(--typography-h4-font-weight);
+  line-height: var(--typography-h4-line-height);
+  color: var(--color-text-default);
+}
+
+h5 {
+  font-family: var(--typography-h5-font-family);
+  font-size: var(--typography-h5-font-size);
+  font-weight: var(--typography-h5-font-weight);
+  line-height: var(--typography-h5-line-height);
+  color: var(--color-text-default);
+}
+
+h6 {
+  font-family: var(--typography-h6-font-family);
+  font-size: var(--typography-h6-font-size);
+  font-weight: var(--typography-h6-font-weight);
+  line-height: var(--typography-h6-line-height);
+  color: var(--color-text-default);
+}
+
+/* ─── Body text ─── */
+
+p {
+  font-family: var(--typography-body-md-font-family);
+  font-size: var(--typography-body-md-font-size);
+  font-weight: var(--typography-body-md-font-weight);
+  line-height: var(--typography-body-md-line-height);
+  color: var(--color-text-default);
+}
+
+small {
+  font-family: var(--typography-body-sm-font-family);
+  font-size: var(--typography-body-sm-font-size);
+  font-weight: var(--typography-body-sm-font-weight);
+  line-height: var(--typography-body-sm-line-height);
+  color: var(--color-text-secondary);
+}
+
+/* ─── Interactive elements ─── */
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--typography-label-md-font-family);
+  font-size: var(--typography-label-md-font-size);
+  font-weight: var(--typography-label-md-font-weight);
+  line-height: var(--typography-label-md-line-height);
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+a {
+  color: var(--color-text-brand);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-text-brand-secondary);
+}
+
+/* ─── Lists ─── */
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ─── Media ─── */
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* ─── Arabic / RTL ─── */
+
+[lang="ar"],
+[dir="rtl"] {
+  font-family: var(--font-family-noto-sans-arabic);
+  direction: rtl;
+}
+
+/* ─── CJK ─── */
+
+[lang="zh-TW"] {
+  font-family: var(--font-family-noto-sans-tc);
+}
+
+[lang="ja"] {
+  font-family: var(--font-family-noto-sans-jp);
+}

@@ -1,0 +1,79 @@
+/* component-template.module.css
+   All values use semantic design tokens — no hardcoded values.
+   Copy and rename this file alongside component-template.tsx. */
+
+/* ─── Base ─── */
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  font-family: var(--typography-label-md-font-family);
+  font-weight: var(--typography-label-md-font-weight);
+  line-height: var(--typography-label-md-line-height);
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.root:disabled {
+  background: var(--color-background-bg-disable);
+  color: var(--color-text-disable);
+  border-color: transparent;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* ─── Variants ─── */
+
+.primary {
+  background: var(--color-background-bg-primary-default);
+  color: var(--color-text-inverse);
+  border: var(--border-width-none) solid transparent;
+  box-shadow: var(--shadow-sm);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--color-background-bg-primary-default-hover);
+}
+
+.secondary {
+  background: var(--color-background-bg-secondary-default);
+  color: var(--color-text-default);
+  border: var(--border-width-none) solid transparent;
+  box-shadow: var(--shadow-sm);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--color-background-bg-secondary-hover);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text-brand);
+  border: var(--border-width-sm) solid var(--color-border-brand);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--color-background-bg-primary-subtle);
+}
+
+/* ─── Sizes ─── */
+
+.sm {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--typography-label-sm-font-size);
+  line-height: var(--typography-label-sm-line-height);
+}
+
+.md {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--typography-label-md-font-size);
+  line-height: var(--typography-label-md-line-height);
+}
+
+.lg {
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  font-size: var(--typography-label-lg-font-size);
+  line-height: var(--typography-label-lg-line-height);
+}

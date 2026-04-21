@@ -1,0 +1,417 @@
+/* Pepperstone Design System — The Hub */
+/* https://www.figma.com/design/0iR1o4UTpxXfbfviJD1HeI/Pepperstone-DS-SSOT */
+/* Auto-generated from src/tokens/ — do not edit directly */
+
+:root {
+
+  /* ═════════════════════════════════════════════
+     COLOR PRIMITIVES  (prefer semantic tokens in components)
+  ═════════════════════════════════════════════ */
+  --color-brand-primary-blue-100: #99c1fd;
+  --color-brand-primary-blue-200: #67a3fc;
+  --color-brand-primary-blue-300: #3484fb;
+  --color-brand-primary-blue-400: #0165fa;
+  --color-brand-primary-blue-50: #e6f0ff;
+  --color-brand-primary-blue-500: #0032c7;
+  --color-brand-primary-blue-600: #000094;
+  --color-brand-primary-blue-700: #000061;
+  --color-brand-secondary-cyan-100: #cefafe;
+  --color-brand-secondary-cyan-200: #a2f4fd;
+  --color-brand-secondary-cyan-300: #53eafd;
+  --color-brand-secondary-cyan-400: #00d3f3;
+  --color-brand-secondary-cyan-50: #ecfeff;
+  --color-brand-secondary-cyan-500: #00b8db;
+  --color-brand-secondary-cyan-600: #0092b8;
+  --color-brand-secondary-cyan-700: #007595;
+  --color-brand-secondary-cyan-800: #005f78;
+  --color-brand-secondary-cyan-900: #104e64;
+  --color-brand-secondary-cyan-950: #053345;
+  --color-crypto-orange-100: #ffecd3;
+  --color-crypto-orange-200: #ffd4a5;
+  --color-crypto-orange-300: #ffb66d;
+  --color-crypto-orange-400: #ff8b32;
+  --color-crypto-orange-50: #fff6ec;
+  --color-crypto-orange-500: #ff6a0a;
+  --color-crypto-orange-600: #ff5000;
+  --color-crypto-orange-700: #cc3702;
+  --color-crypto-orange-800: #a12c0b;
+  --color-crypto-orange-900: #82270c;
+  --color-crypto-orange-950: #461004;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a1a1a1;
+  --color-neutral-50: #fafafa;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+  --color-neutral-black: #000000;
+  --color-neutral-white: #ffffff;
+  --color-neutral-white-20: #ffffff33;
+  --color-system-green-100: #dcfce7;
+  --color-system-green-200: #b9f8cf;
+  --color-system-green-300: #7bf1a8;
+  --color-system-green-400: #05df72;
+  --color-system-green-50: #f0fdf4;
+  --color-system-green-500: #00c950;
+  --color-system-green-600: #00a63e;
+  --color-system-green-700: #008236;
+  --color-system-green-800: #016630;
+  --color-system-green-900: #0d542b;
+  --color-system-green-950: #032e15;
+  --color-system-orange-100: #ffedd4;
+  --color-system-orange-200: #ffd6a8;
+  --color-system-orange-300: #ffb86a;
+  --color-system-orange-400: #ff8904;
+  --color-system-orange-50: #fff7ed;
+  --color-system-orange-500: #ff6900;
+  --color-system-orange-600: #f54900;
+  --color-system-orange-700: #ca3500;
+  --color-system-orange-800: #9f2d00;
+  --color-system-orange-900: #7e2a0c;
+  --color-system-orange-950: #441306;
+  --color-system-red-100: #ffe2e2;
+  --color-system-red-200: #ffc9c9;
+  --color-system-red-300: #ffa2a2;
+  --color-system-red-400: #ff6467;
+  --color-system-red-50: #fef2f2;
+  --color-system-red-500: #fb2c36;
+  --color-system-red-600: #e7000b;
+  --color-system-red-700: #c10007;
+  --color-system-red-800: #9f0712;
+  --color-system-red-900: #82181a;
+  --color-system-red-950: #460809;
+
+  /* ═════════════════════════════════════════════
+     FONT PRIMITIVES
+  ═════════════════════════════════════════════ */
+  --font-family-manrope: 'Manrope';
+  --font-family-noto-sans-arabic: 'Noto Sans Arabic';
+  --font-family-noto-sans-jp: 'Noto Sans JP';
+  --font-family-noto-sans-tc: 'Noto Sans TC';
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+  --font-weight-semi-bold: 600;
+  --font-size-text-2xl: 24px;
+  --font-size-text-3xl: 30px;
+  --font-size-text-4xl: 36px;
+  --font-size-text-5xl: 48px;
+  --font-size-text-6xl: 60px;
+  --font-size-text-7xl: 72px;
+  --font-size-text-8xl: 96px;
+  --font-size-text-9xl: 128px;
+  --font-size-text-base: 16px;
+  --font-size-text-lg: 18px;
+  --font-size-text-sm: 14px;
+  --font-size-text-xl: 20px;
+  --font-size-text-xs: 12px;
+
+  /* ═════════════════════════════════════════════
+     BORDER RADIUS
+  ═════════════════════════════════════════════ */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-4xl: 80px;
+
+  /* ═════════════════════════════════════════════
+     BORDER WIDTH
+  ═════════════════════════════════════════════ */
+  --border-width-none: 0px;
+  --border-width-xxs: 1px;
+  --border-width-xs: 1.5px;
+  --border-width-sm: 2px;
+  --border-width-md: 3px;
+  --border-width-lg: 4px;
+
+  /* ═════════════════════════════════════════════
+     BREAKPOINTS / SCREENS
+  ═════════════════════════════════════════════ */
+  --screen-2xs: 320px;
+  --screen-xs: 375px;
+  --screen-sm: 640px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+  --screen-2xl: 1440px;
+
+  /* ═════════════════════════════════════════════
+     OPACITY
+  ═════════════════════════════════════════════ */
+  --opacity-0: 0;
+  --opacity-5: 5;
+  --opacity-10: 10;
+  --opacity-15: 15;
+  --opacity-20: 20;
+  --opacity-25: 25;
+  --opacity-30: 30;
+  --opacity-35: 35;
+  --opacity-40: 40;
+  --opacity-45: 45;
+  --opacity-50: 50;
+  --opacity-55: 55;
+  --opacity-60: 60;
+  --opacity-65: 65;
+  --opacity-70: 70;
+  --opacity-75: 75;
+  --opacity-80: 80;
+  --opacity-85: 85;
+  --opacity-90: 90;
+  --opacity-95: 95;
+  --opacity-100: 100;
+
+  /* ═════════════════════════════════════════════
+     SEMANTIC COLORS — LIGHT MODE  (auto-switch on data-theme="dark")
+  ═════════════════════════════════════════════ */
+  --color-background-bg-crypto-default: #ff6a0a;
+  --color-background-bg-crypto-hover: #ff5000;
+  --color-background-bg-disable: #e5e5e5;
+  --color-background-bg-error: #ffe2e2;
+  --color-background-bg-inverse: #ffffff;
+  --color-background-bg-on-surface: #d4d4d4;
+  --color-background-bg-overlay: #ffffff4d;
+  --color-background-bg-primary-default: #0165fa;
+  --color-background-bg-primary-default-hover: #0032c7;
+  --color-background-bg-primary-subtle: #e6f0ff;
+  --color-background-bg-primary-subtle-hover: #99c1fd;
+  --color-background-bg-secondary-default: #00d3f3;
+  --color-background-bg-secondary-hover: #00b8db;
+  --color-background-bg-success: #dcfce7;
+  --color-background-bg-surface: #f5f5f5;
+  --color-background-bg-surface-dark: #0a0a0a;
+  --color-background-bg-surface-dark-hover: #525252;
+  --color-background-bg-surface-hover: #e5e5e5;
+  --color-background-bg-warning: #ffedd4;
+  --color-border-brand: #0165fa;
+  --color-border-brand-secondary: #000061;
+  --color-border-inverse-strong: #ffffff;
+  --color-border-inverse-subtle: #ffffff33;
+  --color-border-strong: #0a0a0a;
+  --color-border-subtle: #d4d4d4;
+  --color-foreground-fg-accent: #00d3f3;
+  --color-foreground-fg-brand: #0165fa;
+  --color-foreground-fg-brand-secondary: #000061;
+  --color-foreground-fg-default: #0a0a0a;
+  --color-foreground-fg-disable: #a1a1a1;
+  --color-foreground-fg-error: #c10007;
+  --color-foreground-fg-inverse: #ffffff;
+  --color-foreground-fg-inverse-subtle: #a1a1a1;
+  --color-foreground-fg-subtle: #99c1fd80;
+  --color-foreground-fg-success: #008236;
+  --color-foreground-fg-warning: #ff8904;
+  --color-text-brand: #0165fa;
+  --color-text-brand-secondary: #000061;
+  --color-text-default: #0a0a0a;
+  --color-text-disable: #a1a1a1;
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-subtle: #a1a1a1;
+  --color-text-secondary: #525252;
+
+  /* ═════════════════════════════════════════════
+     SPACING SCALE
+  ═════════════════════════════════════════════ */
+  --spacing-none: 0px;
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 28px;
+  --spacing-4xl: 32px;
+  --spacing-5xl: 36px;
+  --spacing-6xl: 40px;
+  --spacing-7xl: 48px;
+  --spacing-8xl: 64px;
+  --spacing-9xl: 80px;
+  --spacing-10xl: 96px;
+  --spacing-11xl: 120px;
+  --spacing-12xl: 160px;
+  --spacing-13xl: 200px;
+  --max-width-lg: 960px;
+  --max-width-md: 720px;
+
+  /* ═════════════════════════════════════════════
+     SHADOWS
+  ═════════════════════════════════════════════ */
+  --shadow-2xl: 0px 25px 50px -12px #00000040;
+  --shadow-2xs: 0px 1px 1px 0px #0000000d;
+  --shadow-lg: 0px 10px 15px -3px #0000001a;
+  --shadow-md: 0px 4px 6px -1px #0000001a;
+  --shadow-sm: 0px 2px 4px -1px #0000001a;
+  --shadow-xl: 0px 20px 25px -5px #0000001a;
+  --shadow-xs: 0px 1px 3px 0px #0000000d;
+
+  /* ═════════════════════════════════════════════
+     BLUR
+  ═════════════════════════════════════════════ */
+  --blur-2xl: 40px;
+  --blur-3xl: 64px;
+  --blur-lg: 16px;
+  --blur-md: 12px;
+  --blur-sm: 8px;
+  --blur-xl: 24px;
+  --blur-xs: 4px;
+
+  /* ═════════════════════════════════════════════
+     TYPOGRAPHY — DESKTOP
+  ═════════════════════════════════════════════ */
+  --typography-body-lg-font-family: 'Manrope';
+  --typography-body-lg-font-size: 18px;
+  --typography-body-lg-font-weight: 400;
+  --typography-body-lg-line-height: 24px;
+  --typography-body-md-font-family: 'Manrope';
+  --typography-body-md-font-size: 16px;
+  --typography-body-md-font-weight: 400;
+  --typography-body-md-line-height: 24px;
+  --typography-body-sm-font-family: 'Manrope';
+  --typography-body-sm-font-size: 14px;
+  --typography-body-sm-font-weight: 400;
+  --typography-body-sm-line-height: 20px;
+  --typography-body-xs-font-family: 'Manrope';
+  --typography-body-xs-font-size: 12px;
+  --typography-body-xs-font-weight: 400;
+  --typography-body-xs-line-height: 16px;
+  --typography-h1-font-family: 'Manrope';
+  --typography-h1-font-size: 96px;
+  --typography-h1-font-weight: 700;
+  --typography-h1-line-height: 100px;
+  --typography-h2-font-family: 'Manrope';
+  --typography-h2-font-size: 72px;
+  --typography-h2-font-weight: 700;
+  --typography-h2-line-height: 88px;
+  --typography-h3-font-family: 'Manrope';
+  --typography-h3-font-size: 48px;
+  --typography-h3-font-weight: 700;
+  --typography-h3-line-height: 56px;
+  --typography-h4-font-family: 'Manrope';
+  --typography-h4-font-size: 30px;
+  --typography-h4-font-weight: 700;
+  --typography-h4-line-height: 36px;
+  --typography-h5-font-family: 'Manrope';
+  --typography-h5-font-size: 24px;
+  --typography-h5-font-weight: 700;
+  --typography-h5-line-height: 32px;
+  --typography-h6-font-family: 'Manrope';
+  --typography-h6-font-size: 20px;
+  --typography-h6-font-weight: 700;
+  --typography-h6-line-height: 28px;
+  --typography-label-lg-font-family: 'Manrope';
+  --typography-label-lg-font-size: 18px;
+  --typography-label-lg-font-weight: 600;
+  --typography-label-lg-line-height: 24px;
+  --typography-label-md-font-family: 'Manrope';
+  --typography-label-md-font-size: 16px;
+  --typography-label-md-font-weight: 600;
+  --typography-label-md-line-height: 24px;
+  --typography-label-sm-font-family: 'Manrope';
+  --typography-label-sm-font-size: 14px;
+  --typography-label-sm-font-weight: 600;
+  --typography-label-sm-line-height: 20px;
+
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE OVERRIDES
+   Apply data-theme="dark" to <html> to activate
+═══════════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-background-bg-inverse: #1e1e1e;
+  --color-background-bg-surface-hover: #525252;
+  --color-background-bg-disable: #737373;
+  --color-background-bg-error: #ffe2e2;
+  --color-background-bg-inverse: #f5f5f5;
+  --color-background-bg-primary-default: #0165fa;
+  --color-background-bg-primary-hover: #0032c7;
+  --color-background-bg-primary-subtle: #e6f0ff;
+  --color-background-bg-secondary-default: #00d3f3;
+  --color-background-bg-secondary-hover: #00b8db;
+  --color-background-bg-success: #dcfce7;
+  --color-background-bg-surface: #404040;
+  --color-background-bg-surface-dark: #0a0a0a;
+  --color-background-bg-warning: #ffedd4;
+  --color-border-inverse-strong: #0a0a0a;
+  --color-border-inverse-subtle: #d4d4d4;
+  --color-border-strong: #e5e5e5;
+  --color-border-subtle: #525252;
+  --color-foreground-fg-default: #0a0a0a;
+  --color-foreground-fg-error: #e7000b;
+  --color-foreground-fg-inverse: #f5f5f5;
+  --color-foreground-fg-success: #00a63e;
+  --color-foreground-fg-warning: #ff8904;
+  --color-text-brand: #0165fa;
+  --color-text-brand-secondary: #67a3fc;
+  --color-text-default: #e5e5e5;
+  --color-text-disable: #525252;
+  --color-text-inverse: #0a0a0a;
+  --color-text-secondary: #a1a1a1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE TYPOGRAPHY — MOBILE  (≤768px)
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root {
+    --typography-body-lg-font-family: 'Manrope';
+    --typography-body-lg-font-size: 18px;
+    --typography-body-lg-font-weight: 400;
+    --typography-body-lg-line-height: 24px;
+    --typography-body-md-font-family: 'Manrope';
+    --typography-body-md-font-size: 16px;
+    --typography-body-md-font-weight: 400;
+    --typography-body-md-line-height: 24px;
+    --typography-body-sm-font-family: 'Manrope';
+    --typography-body-sm-font-size: 14px;
+    --typography-body-sm-font-weight: 400;
+    --typography-body-sm-line-height: 20px;
+    --typography-body-xs-font-family: 'Manrope';
+    --typography-body-xs-font-size: 12px;
+    --typography-body-xs-font-weight: 400;
+    --typography-body-xs-line-height: 16px;
+    --typography-h1-font-family: 'Manrope';
+    --typography-h1-font-size: 48px;
+    --typography-h1-font-weight: 700;
+    --typography-h1-line-height: 52px;
+    --typography-h2-font-family: 'Manrope';
+    --typography-h2-font-size: 36px;
+    --typography-h2-font-weight: 700;
+    --typography-h2-line-height: 40px;
+    --typography-h3-font-family: 'Manrope';
+    --typography-h3-font-size: 30px;
+    --typography-h3-font-weight: 700;
+    --typography-h3-line-height: 36px;
+    --typography-h4-font-family: 'Manrope';
+    --typography-h4-font-size: 24px;
+    --typography-h4-font-weight: 700;
+    --typography-h4-line-height: 28px;
+    --typography-h5-font-family: 'Manrope';
+    --typography-h5-font-size: 20px;
+    --typography-h5-font-weight: 700;
+    --typography-h5-line-height: 28px;
+    --typography-h6-font-family: 'Manrope';
+    --typography-h6-font-size: 18px;
+    --typography-h6-font-weight: 700;
+    --typography-h6-line-height: 24px;
+    --typography-label-lg-font-family: 'Manrope';
+    --typography-label-lg-font-size: 18px;
+    --typography-label-lg-font-weight: 600;
+    --typography-label-lg-line-height: 24px;
+    --typography-label-md-font-family: 'Manrope';
+    --typography-label-md-font-size: 16px;
+    --typography-label-md-font-weight: 600;
+    --typography-label-md-line-height: 24px;
+    --typography-label-sm-font-family: 'Manrope';
+    --typography-label-sm-font-size: 14px;
+    --typography-label-sm-font-weight: 600;
+    --typography-label-sm-line-height: 20px;
+  }
+}

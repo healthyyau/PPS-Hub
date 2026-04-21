@@ -1,0 +1,44 @@
+{
+  "Desktop": {
+    "$type": "grid",
+    "$value": [
+      {
+        "pattern": "columns",
+        "visible": true,
+        "alignment": "stretch",
+        "color": "#00d3f34d",
+        "gutterSize": "{theme-spacing.layout-gutter}",
+        "count": "{canvas.canvas-columns}",
+        "offset": "{theme-spacing.layout-margin}"
+      }
+    ]
+  },
+  "Tablet": {
+    "$type": "grid",
+    "$value": [
+      {
+        "pattern": "columns",
+        "visible": true,
+        "alignment": "stretch",
+        "color": "#00d3f34d",
+        "gutterSize": "{theme-spacing.layout-gutter}",
+        "count": "{canvas.canvas-columns}",
+        "offset": "{theme-spacing.layout-margin}"
+      }
+    ]
+  },
+  "Mobile": {
+    "$type": "grid",
+    "$value": [
+      {
+        "pattern": "columns",
+        "visible": true,
+        "alignment": "stretch",
+        "color": "#00d3f34d",
+        "gutterSize": "{theme-spacing.layout-gutter}",
+        "count": "{canvas.canvas-columns}",
+        "offset": "{theme-spacing.layout-margin}"
+      }
+    ]
+  }
+}

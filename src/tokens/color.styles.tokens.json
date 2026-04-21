@@ -1,0 +1,108 @@
+{
+  "icon_glass_light": {
+    "$type": "color",
+    "$value": "{colors.foreground.fg-subtle}"
+  },
+  "icon_glass_dark": {
+    "$type": "gradient",
+    "$value": {
+      "type": "linear",
+      "angle": 214,
+      "stops": [
+        {
+          "color": "{colors.foreground.fg-brand}",
+          "position": 0
+        },
+        {
+          "color": "{colors.foreground.fg-accent}",
+          "position": 1
+        }
+      ]
+    }
+  },
+  "BG_Brand gradient_Blue": {
+    "$type": "gradient",
+    "$value": {
+      "type": "linear",
+      "angle": 133,
+      "stops": [
+        {
+          "color": "{colors.background.bg-primary-default}",
+          "position": 0
+        },
+        {
+          "color": "{colors.background.bg-secondary-default}",
+          "position": 1
+        }
+      ]
+    }
+  },
+  "Card _bg_gradient": {
+    "$type": "gradient",
+    "$value": {
+      "type": "linear",
+      "angle": 207,
+      "stops": [
+        {
+          "color": "{colors.foreground.fg-brand}",
+          "position": 0
+        },
+        {
+          "color": "{colors.foreground.fg-accent}",
+          "position": 1
+        }
+      ]
+    }
+  },
+  "BG_Brand gradient_Light": {
+    "$type": "gradient",
+    "$value": {
+      "type": "linear",
+      "angle": 360,
+      "stops": [
+        {
+          "color": "{colors.background.bg-primary-subtle}",
+          "position": 0
+        },
+        {
+          "color": "#e6f0ff00",
+          "position": 1
+        }
+      ]
+    }
+  },
+  "Educational BG": {
+    "$type": "gradient",
+    "$value": {
+      "type": "radial",
+      "angle": 85,
+      "stops": [
+        {
+          "color": "{colors.background.bg-primary-default}",
+          "position": 0
+        },
+        {
+          "color": "{colors.background.bg-secondary-default}",
+          "position": 1
+        }
+      ]
+    }
+  },
+  "Hero image mask": {
+    "$type": "gradient",
+    "$value": {
+      "type": "linear",
+      "angle": 180,
+      "stops": [
+        {
+          "color": "#000000",
+          "position": 0
+        },
+        {
+          "color": "#00000000",
+          "position": 1
+        }
+      ]
+    }
+  }
+}

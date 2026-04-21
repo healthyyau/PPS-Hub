@@ -1,0 +1,286 @@
+{
+  "Focus rings default": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "0px",
+        "spread": "4px",
+        "color": "{colors.border.brand}"
+      },
+      {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "0px",
+        "spread": "2px",
+        "color": "{colors.border.inverse strong}"
+      }
+    ]
+  },
+  "Focus rings inverse": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "0px",
+        "spread": "4px",
+        "color": "{colors.border.inverse strong}"
+      },
+      {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "0px",
+        "spread": "2px",
+        "color": "{colors.border.strong}"
+      }
+    ]
+  },
+  "Focus rings error": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "0px",
+        "spread": "4px",
+        "color": "{colors.foreground.fg-error}"
+      },
+      {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "0px",
+        "spread": "2px",
+        "color": "{colors.border.inverse strong}"
+      }
+    ]
+  },
+  "Focus rings subtle": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "0px",
+        "spread": "4px",
+        "color": "{colors.border.strong}"
+      },
+      {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "0px",
+        "spread": "2px",
+        "color": "{colors.border.inverse strong}"
+      }
+    ]
+  },
+  "icon light effect": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "backgroundBlur": true,
+        "blur": "15px"
+      },
+      {
+        "offsetX": "0px",
+        "offsetY": "-3px",
+        "blur": "2px",
+        "spread": "0px",
+        "color": "#347ffc1a",
+        "inset": true
+      },
+      {
+        "offsetX": "2px",
+        "offsetY": "3px",
+        "blur": "2px",
+        "spread": "0px",
+        "color": "#ffffff1a",
+        "inset": true
+      }
+    ]
+  },
+  "icon dark effect": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "0px",
+        "offsetY": "{shadow.md.offset-y}",
+        "blur": "{shadow.md.blur-radius}",
+        "spread": "{shadow.md.spread-radius}",
+        "color": "{shadow.xs.color}"
+      },
+      {
+        "offsetX": "-3px",
+        "offsetY": "3px",
+        "blur": "14px",
+        "spread": "0px",
+        "color": "#ffffff4d",
+        "inset": true
+      },
+      {
+        "offsetX": "15px",
+        "offsetY": "-15px",
+        "blur": "27px",
+        "spread": "0px",
+        "color": "#00000033",
+        "inset": true
+      },
+      {
+        "offsetX": "0px",
+        "offsetY": "-1px",
+        "blur": "2px",
+        "spread": "0px",
+        "color": "#00276833",
+        "inset": true
+      }
+    ]
+  },
+  "shadow_2xs": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "{shadow.2xs.offset-x}",
+        "offsetY": "{shadow.2xs.offset-y}",
+        "blur": "{shadow.2xs.blur-radius}",
+        "spread": "{shadow.2xs.spread-radius}",
+        "color": "{shadow.2xs.color}"
+      }
+    ]
+  },
+  "shadow_xs": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "{shadow.xs.offset-x}",
+        "offsetY": "{shadow.xs.offset-y}",
+        "blur": "{shadow.xs.blur-radius}",
+        "spread": "{shadow.xs.spread-radius}",
+        "color": "{shadow.xs.color}"
+      }
+    ]
+  },
+  "shadow_sm": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "{shadow.sm.offset-x}",
+        "offsetY": "{shadow.sm.offset-y}",
+        "blur": "{shadow.sm.blur-radius}",
+        "spread": "{shadow.sm.spread-radius}",
+        "color": "{shadow.sm.color}"
+      }
+    ]
+  },
+  "shadow_md": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "{shadow.md.offset-x}",
+        "offsetY": "{shadow.md.offset-y}",
+        "blur": "{shadow.md.blur-radius}",
+        "spread": "{shadow.md.spread-radius}",
+        "color": "{shadow.md.color}"
+      }
+    ]
+  },
+  "shadow_lg": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "{shadow.lg.offset-x}",
+        "offsetY": "{shadow.lg.offset-y}",
+        "blur": "{shadow.lg.blur-radius}",
+        "spread": "{shadow.lg.spread-radius}",
+        "color": "{shadow.lg.color}"
+      }
+    ]
+  },
+  "shadow_xl": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "{shadow.xl.offset-x}",
+        "offsetY": "{shadow.xl.offset-y}",
+        "blur": "{shadow.xl.blur-radius}",
+        "spread": "{shadow.xl.spread-radius}",
+        "color": "{shadow.xl.color}"
+      }
+    ]
+  },
+  "shadow_2xl": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "{shadow.2xl.offset-x}",
+        "offsetY": "{shadow.2xl.offset-y}",
+        "blur": "{shadow.2xl.blur-radius}",
+        "spread": "{shadow.2xl.spread-radius}",
+        "color": "{shadow.2xl.color}"
+      }
+    ]
+  },
+  "blur-lg": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "backgroundBlur": true,
+        "blur": "{blur.lg}"
+      }
+    ]
+  },
+  "blur-md": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "backgroundBlur": true,
+        "blur": "{blur.md}"
+      }
+    ]
+  },
+  "blur-sm": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "backgroundBlur": true,
+        "blur": "{blur.sm}"
+      }
+    ]
+  },
+  "blur-xl": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "backgroundBlur": true,
+        "blur": "{blur.2xl}"
+      }
+    ]
+  },
+  "blur-2xl": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "backgroundBlur": true,
+        "blur": "{blur.2xl}"
+      }
+    ]
+  },
+  "blur-3xl": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "backgroundBlur": true,
+        "blur": "{blur.3xl}"
+      }
+    ]
+  },
+  "blur-xs": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "backgroundBlur": true,
+        "blur": "{blur.xs}"
+      }
+    ]
+  }
+}

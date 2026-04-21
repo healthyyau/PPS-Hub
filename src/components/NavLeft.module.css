@@ -1,0 +1,284 @@
+/* ─── Expanded sidebar ─── */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--color-background-bg-inverse);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: calc(100vh - 80px - 48px);
+  position: sticky;
+  top: calc(80px + 24px);
+  overflow-y: auto;
+  transition: width 200ms ease;
+}
+
+/* ─── Collapsed sidebar (< 1440px) ─── */
+.sidebarCollapsed {
+  width: 120px;
+  flex-shrink: 0;
+  background: var(--color-background-bg-inverse);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: calc(100vh - 80px - 48px);
+  position: sticky;
+  top: calc(80px + 24px);
+  overflow-y: auto;
+  transition: width 200ms ease;
+}
+
+.top {
+  flex: 1;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ─── WebTrader — expanded ─── */
+.webTraderBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-background-bg-primary-default);
+  border-radius: var(--radius-xl);
+  padding: 12px var(--spacing-2xl);
+  cursor: pointer;
+  width: 100%;
+}
+
+.webTraderIconWrap {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.webTraderLabel {
+  font-family: var(--typography-label-md-font-family);
+  font-size: var(--typography-label-md-font-size);
+  font-weight: var(--typography-label-md-font-weight);
+  line-height: var(--typography-label-md-line-height);
+  color: var(--color-text-inverse);
+  white-space: nowrap;
+}
+
+/* ─── WebTrader — collapsed ─── */
+.webTraderBtnCollapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--color-background-bg-primary-default);
+  border-radius: var(--radius-xl);
+  padding: 16px 12px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.webTraderLabelCollapsed {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: var(--typography-label-sm-font-size);
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-inverse);
+  text-align: center;
+}
+
+/* ─── Nav icons ─── */
+.navIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 24px icon for collapsed state */
+.navIconLg {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* ─── Nav items — expanded ─── */
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px var(--spacing-2xl);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  width: 100%;
+  transition: background 150ms ease;
+}
+
+.navItem:hover {
+  background: var(--color-background-bg-surface);
+}
+
+.navItemActive {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px var(--spacing-2xl);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  width: 100%;
+  background: var(--color-background-bg-surface);
+}
+
+/* ─── Nav items — collapsed ─── */
+.navItemCollapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 12px;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  width: 100%;
+  transition: background 150ms ease;
+}
+
+.navItemCollapsed:hover {
+  background: var(--color-background-bg-surface);
+}
+
+.navItemActiveCollapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 12px;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  width: 100%;
+  background: var(--color-background-bg-surface);
+}
+
+/* ─── Nav labels ─── */
+.navLabel {
+  flex: 1;
+  font-family: var(--typography-label-md-font-family);
+  font-size: var(--typography-label-md-font-size);
+  font-weight: var(--typography-label-md-font-weight);
+  line-height: var(--typography-label-md-line-height);
+  color: var(--color-text-default);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.navLabelSm {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: var(--typography-label-sm-font-size);
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-default);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ─── Bottom section ─── */
+.bottom {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.bottomItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: 8px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.bottomItem:hover {
+  background: var(--color-background-bg-surface);
+}
+
+.bottomItemCollapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.bottomItemCollapsed:hover {
+  background: var(--color-background-bg-surface);
+}
+
+.bottomLabel {
+  flex: 1;
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 14px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-default);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.bottomLabelBlue {
+  flex: 1;
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 14px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-brand);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* ─── Mobile: hidden by default, slides in from the RIGHT as expanded drawer ─── */
+@media (max-width: 768px) {
+  .sidebar,
+  .sidebarCollapsed {
+    position: fixed !important;
+    top: 0;
+    right: -320px;
+    left: auto !important;
+    height: 100vh !important;
+    width: 280px !important;
+    /* Rounded on the left edge (facing the content) */
+    border-radius: var(--radius-2xl) 0 0 var(--radius-2xl) !important;
+    z-index: 300;
+    transition: right 200ms ease;
+    padding-top: 24px !important;
+  }
+
+  .sidebarMobileOpen {
+    right: 0 !important;
+  }
+}
