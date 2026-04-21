@@ -1,0 +1,159 @@
+/* Overview.module.css — Overview page layout */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-background-bg-surface);
+  font-family: var(--typography-body-md-font-family);
+  color: var(--color-text-default);
+}
+
+/* ─── Body (below navbar) ─── */
+.body {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ─── Content row (main canvas + drawer slot side by side) ─── */
+.contentRow {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  /* NO overflow set here — ancestor overflow:hidden breaks position:sticky */
+}
+
+/* ─── Main canvas ─── */
+.mainCanvas {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  /* Declare as a container so child sections can use @container queries
+     and respond to THIS element's width, not the viewport */
+  container-type: inline-size;
+  container-name: main;
+}
+
+/* ─── Drawer slot — push-layout on desktop ─── */
+.drawerSlot {
+  flex-shrink: 0;
+  width: 0;
+  /* overflow:hidden on the sticky element ITSELF is fine (doesn't break its own sticky)
+     — clips the 460px drawer to 0 width during the open animation */
+  overflow: hidden;
+  transition: width 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* Exact same sticky contract as NavLeft */
+  position: sticky;
+  top: calc(80px + 24px);
+  height: calc(100vh - 80px - 48px);
+  align-self: flex-start;
+}
+
+.drawerSlotOpen {
+  width: 460px;
+}
+
+/* ─── Page header ─── */
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  flex-shrink: 0;
+}
+
+.pageTitle {
+  font-family: var(--typography-h5-font-family);
+  font-size: var(--typography-h5-font-size);
+  font-weight: var(--typography-h5-font-weight);
+  line-height: var(--typography-h5-line-height);
+  color: var(--color-text-default);
+  margin: 0;
+}
+
+.openAccountBtn {
+  background: var(--color-background-bg-primary-default);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-4xl);
+  padding: 8px 24px;
+  font-family: var(--typography-label-md-font-family);
+  font-size: var(--typography-label-md-font-size);
+  font-weight: var(--typography-label-md-font-weight);
+  line-height: var(--typography-label-md-line-height);
+  cursor: pointer;
+  transition: background 150ms ease;
+  white-space: nowrap;
+}
+
+.openAccountBtn:hover {
+  background: var(--color-background-bg-primary-default-hover);
+}
+
+/* ─── Mobile nav overlay ─── */
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 20, 46, 0.45);
+  z-index: 299;
+}
+
+/* ─── Add account overlay (mobile only) ─── */
+.drawerOverlay {
+  display: none;
+}
+
+/* ─── Mobile layout ─── */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+    gap: 0;
+  }
+
+  .contentRow {
+    gap: 0;
+    overflow: visible; /* allow fixed drawer to escape */
+  }
+
+  .mainCanvas {
+    min-width: 0;
+  }
+
+  /* On mobile the drawer slot takes no flow space — it becomes fixed overlay */
+  .drawerSlot {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100vw !important;
+    bottom: 0 !important;
+    width: min(100vw, 420px) !important;
+    max-height: 100vh !important;
+    height: 100vh !important;
+    z-index: 350;
+    overflow-y: auto;
+    transition: right 280ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .drawerSlotOpen {
+    right: 0 !important;
+  }
+
+  /* Show overlay behind the mobile drawer */
+  .drawerOverlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 20, 46, 0.45);
+    z-index: 349;
+  }
+}

@@ -1,0 +1,328 @@
+.section {
+  background: #ffffff;
+  border-radius: 32px;
+  padding: 40px;
+  width: 100%;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-family: var(--typography-h5-font-family);
+  font-size: var(--typography-h5-font-size);
+  font-weight: var(--typography-h5-font-weight);
+  line-height: var(--typography-h5-line-height);
+  color: #03142e;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.sectionDesc {
+  font-family: var(--typography-body-sm-font-family);
+  font-size: var(--typography-body-sm-font-size);
+  font-weight: var(--typography-body-sm-font-weight);
+  line-height: var(--typography-body-sm-line-height);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.learnMore {
+  color: var(--color-text-default);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ─── Content grid ─── */
+.content {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* ─── Featured card (MT5) ─── */
+.featuredCard {
+  flex: 1;
+  min-width: 0;
+  border-radius: 32px;
+  background: linear-gradient(212.55deg, rgba(1, 101, 250, 0.8) 50.84%, rgba(0, 211, 243, 0.8) 103.78%),
+    linear-gradient(90deg, #0165fa 0%, #0165fa 100%);
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: stretch;
+}
+
+.featuredInner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+.featuredPlatformHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.featuredIconWrap {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.featuredPlatformName {
+  font-family: var(--typography-h5-font-family);
+  font-size: var(--typography-h5-font-size);
+  font-weight: var(--typography-h5-font-weight);
+  line-height: var(--typography-h5-line-height);
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.featuredDesc {
+  font-family: var(--typography-body-sm-font-family);
+  font-size: var(--typography-body-sm-font-size);
+  font-weight: var(--typography-body-sm-font-weight);
+  line-height: var(--typography-body-sm-line-height);
+  color: #ffffff;
+  margin: 0;
+  width: 100%;
+}
+
+/* ─── Point list ─── */
+.pointList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.point {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkWrap {
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
+  flex-shrink: 0;
+}
+
+.pointTextWhite {
+  font-family: var(--typography-body-xs-font-family);
+  font-size: var(--typography-body-xs-font-size);
+  font-weight: var(--typography-body-xs-font-weight);
+  line-height: var(--typography-body-xs-line-height);
+  color: #ffffff;
+  margin: 0;
+}
+
+.pointTextDark {
+  font-family: var(--typography-body-xs-font-family);
+  font-size: var(--typography-body-xs-font-size);
+  font-weight: var(--typography-body-xs-font-weight);
+  line-height: var(--typography-body-xs-line-height);
+  color: rgba(3, 20, 46, 0.7);
+  margin: 0;
+}
+
+/* ─── Trade now buttons ─── */
+.tradeNowWhite {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-4xl);
+  padding: 8px 0;
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 12px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+
+.tradeNowDark {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-4xl);
+  padding: 8px 0;
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 12px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-default);
+  cursor: pointer;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+
+/* ─── Columns for small cards ─── */
+.col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─── Small cards ─── */
+.smallCard {
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  display: flex;
+}
+
+.smallCardInner {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+.smallCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.platformIconSmall {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.platformNameSmall {
+  font-family: var(--typography-label-md-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: var(--typography-label-md-line-height);
+  color: #03142e;
+  white-space: nowrap;
+}
+
+/* ─── Responsive — container queries respond to the main canvas width,
+       not the viewport. This means they also fire when the Add Account
+       drawer pushes the canvas narrower. ─── */
+
+@container main (max-width: 860px) {
+  .section {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .sectionTitle {
+    white-space: normal;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .featuredCard {
+    padding: 24px;
+  }
+
+  .col {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .smallCard {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .smallCardInner {
+    padding: 20px;
+    gap: 16px;
+  }
+}
+
+@container main (max-width: 520px) {
+  .col {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .smallCardInner {
+    padding: 16px;
+  }
+}
+
+/* Viewport fallback for browsers without container query support */
+@media (max-width: 768px) {
+  .section {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .sectionTitle {
+    white-space: normal;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .featuredCard {
+    padding: 24px;
+  }
+
+  .col {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .smallCard {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .smallCardInner {
+    padding: 20px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .col {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .smallCardInner {
+    padding: 16px;
+  }
+}
