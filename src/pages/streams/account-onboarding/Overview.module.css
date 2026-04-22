@@ -114,7 +114,15 @@
   display: none;
 }
 
-/* ─── Mobile layout ─── */
+/* ─────────────────────────────────────────────────────────────
+   Drawer responsive behaviour
+
+   > 768px : push side drawer (base styles above)
+   ≤ 768px : centered modal (fade + scale in)
+   ≤ 640px : bottom sheet (slide up from bottom)
+───────────────────────────────────────────────────────────── */
+
+/* ─── Tablet + smaller: shared shell tweaks ─── */
 @media (max-width: 768px) {
   .container {
     padding: 16px;
@@ -130,30 +138,70 @@
     min-width: 0;
   }
 
-  /* On mobile the drawer slot takes no flow space — it becomes fixed overlay */
-  .drawerSlot {
-    position: fixed !important;
-    top: 0 !important;
-    right: -100vw !important;
-    bottom: 0 !important;
-    width: min(100vw, 420px) !important;
-    max-height: 100vh !important;
-    height: 100vh !important;
-    z-index: 350;
-    overflow-y: auto;
-    transition: right 280ms cubic-bezier(0.4, 0, 0.2, 1) !important;
-  }
-
-  .drawerSlotOpen {
-    right: 0 !important;
-  }
-
-  /* Show overlay behind the mobile drawer */
+  /* Backdrop behind both modal + bottom sheet */
   .drawerOverlay {
     display: block;
     position: fixed;
     inset: 0;
     background: rgba(3, 20, 46, 0.45);
     z-index: 349;
+  }
+}
+
+/* ─── Tablet (≤ 768px): centered modal ─── */
+@media (max-width: 768px) {
+  .drawerSlot {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: min(92vw, 460px) !important;
+    max-width: 460px !important;
+    height: auto !important;
+    max-height: min(90vh, 720px) !important;
+    transform: translate(-50%, -50%) scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 350;
+    overflow: hidden;
+    transition:
+      opacity 200ms ease,
+      transform 240ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .drawerSlotOpen {
+    transform: translate(-50%, -50%) scale(1) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    /* override any desktop width rule */
+    width: min(92vw, 460px) !important;
+  }
+}
+
+/* ─── Mobile (≤ 640px): bottom sheet — overrides tablet modal ─── */
+@media (max-width: 640px) {
+  .drawerSlot {
+    /* Anchor to bottom, full width */
+    top: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: -100% !important;
+    width: 100vw !important;
+    max-width: none !important;
+    height: 88vh !important;
+    max-height: 88vh !important;
+
+    /* Reset modal transform/opacity */
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+
+    transition: bottom 320ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .drawerSlotOpen {
+    bottom: 0 !important;
+    width: 100vw !important;
   }
 }
