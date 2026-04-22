@@ -182,26 +182,27 @@
 /* ─── Mobile (≤ 640px): bottom sheet — overrides tablet modal ─── */
 @media (max-width: 640px) {
   .drawerSlot {
-    /* Anchor to bottom, full width */
+    /* Always anchored to the bottom, full viewport width */
     top: auto !important;
     left: 0 !important;
     right: 0 !important;
-    bottom: -100% !important;
-    width: 100vw !important;
+    bottom: 0 !important;
+    width: 100% !important;
     max-width: none !important;
-    height: 88vh !important;
+
+    /* Fit content, cap at 88% of viewport so it never overflows */
+    height: auto !important;
     max-height: 88vh !important;
 
-    /* Reset modal transform/opacity */
-    transform: none !important;
+    /* Hidden state: slide off below the viewport (no horizontal scroll artefact) */
+    transform: translateY(100%);
     opacity: 1 !important;
     pointer-events: auto !important;
 
-    transition: bottom 320ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
   .drawerSlotOpen {
-    bottom: 0 !important;
-    width: 100vw !important;
+    transform: translateY(0) !important;
   }
 }

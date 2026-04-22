@@ -409,10 +409,13 @@
   }
 }
 
-/* Bottom sheet (mobile) — round top corners, square bottom */
+/* Bottom sheet (mobile) — round top corners, square bottom, content-height */
 @media (max-width: 640px) {
   .drawer {
     border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
+    /* Let the sheet size to its content (capped by the slot's max-height) */
+    height: auto;
+    max-height: 88vh;
   }
 
   /* Grab-handle at the top of the sheet */
