@@ -123,14 +123,11 @@
   cursor: pointer;
   width: 100%;
   transition: background 150ms ease;
-<<<<<<< Hub-1.0.0
-=======
   background: transparent;
   border: none;
   font: inherit;
   text-align: left;
   color: inherit;
->>>>>>> main
 }
 
 .navItem:hover {
@@ -280,24 +277,24 @@
   min-width: 0;
 }
 
-/* ─── Mobile: hidden by default, slides in from the RIGHT as expanded drawer ─── */
+/* ─── Mobile: hidden by default, slides in from the LEFT as expanded drawer ─── */
 @media (max-width: 768px) {
   .sidebar,
   .sidebarCollapsed {
     position: fixed !important;
     top: 0;
-    right: -320px;
-    left: auto !important;
+    left: -320px;
+    right: auto !important;
     height: 100vh !important;
     width: 280px !important;
-    /* Rounded on the left edge (facing the content) */
-    border-radius: var(--radius-2xl) 0 0 var(--radius-2xl) !important;
+    /* Rounded on the right edge (facing the content) */
+    border-radius: 0 var(--radius-2xl) var(--radius-2xl) 0 !important;
     z-index: 300;
-    transition: right 200ms ease;
+    transition: left 200ms ease;
     padding-top: 24px !important;
   }
 
   .sidebarMobileOpen {
-    right: 0 !important;
+    left: 0 !important;
   }
 }

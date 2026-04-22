@@ -241,6 +241,16 @@ export default function Navbar({ onMenuOpen }: NavbarProps) {
               )}
             </div>
           </div>
+
+          <button
+            className={styles.menuBtn}
+            aria-label="Open navigation"
+            onClick={() => onMenuOpen?.()}
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
         </div>
       </div>
     </nav>
