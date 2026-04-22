@@ -25,61 +25,24 @@
 }
 
 
-/* ─── Logo: collapse to P icon only at ≤768px ─── */
-@media (max-width: 768px) {
-  .inner {
-    padding: 0 16px;
-  }
+/* ─── Hamburger — hidden on desktop, shown at tablet and below ─── */
+.menuBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  color: var(--color-text-default);
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
 
-  .logo {
-    width: 38px;
-    height: 38px;
-  }
-
-  .logoVector,
-  .logoVector1 {
-    display: none;
-  }
-
-  .logoSubtract {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
-  .actions {
-    gap: 12px;
-    flex-shrink: 0;
-  }
-
-  .depositBtn span {
-    display: none;
-  }
-
-  .userName {
-    display: none;
-  }
-
-  .userSection {
-    gap: 4px;
-  }
-
-  /* Lang button: flag only — hide text and chevron */
-  .langBtn {
-    padding: 4px;
-    gap: 0;
-  }
-
-  .langBtn span,
-  .langChevron {
-    display: none;
-  }
-
-  .flagIcon {
-    width: 28px;
-    height: 28px;
-  }
+.menuBtn:hover {
+  background: var(--color-background-bg-surface);
 }
 
 /* ─── Logo ─── */
@@ -275,9 +238,12 @@
   color: #ffffff;
   background: #d6313b;
   border-radius: 999px;
-  padding: 1px 6px;
-  min-width: 18px;
-  text-align: center;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .notifMarkAll {
@@ -560,4 +526,72 @@
   color: var(--color-text-brand);
   flex-shrink: 0;
   margin-left: 2px;
+}
+
+/* ─── Mobile (≤768px): consolidated responsive overrides.
+   Placed at end-of-file so natural source-order cascade beats the base
+   rules above — no !important needed. ─── */
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 16px;
+  }
+
+  .logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logoVector,
+  .logoVector1 {
+    display: none;
+  }
+
+  .logoSubtract {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .actions {
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .depositBtn span {
+    display: none;
+  }
+
+  .userName,
+  .langWrap {
+    display: none;
+  }
+
+  /* Unwrap userSection so avatar + bell become direct flex children of
+     .actions — a single shared 12px gap rather than a nested group. */
+  .userSection {
+    display: contents;
+  }
+
+  /* Match button visual bounds to the 36px avatar so whitespace between
+     avatar · bell · hamburger is uniform. */
+  .bellBtn,
+  .menuBtn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .menuBtn {
+    display: flex;
+  }
+
+  /* Notification dropdown — pin to the viewport instead of the bell so it
+     doesn't overflow when the bell sits near the edge. */
+  .notifDropdown {
+    position: fixed;
+    top: 72px;
+    right: 16px;
+    left: auto;
+    width: min(360px, calc(100vw - 32px));
+  }
 }

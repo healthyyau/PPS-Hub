@@ -49,19 +49,26 @@
 .drawerSlot {
   flex-shrink: 0;
   width: 0;
+  /* Flex items default to min-width:auto (= min-content). Without this the
+     slot can't actually shrink to 0 because the inner drawer has
+     min-width:460px, so the "closed" slot ends up 460px+ wide and visible. */
+  min-width: 0;
   /* overflow:hidden on the sticky element ITSELF is fine (doesn't break its own sticky)
      — clips the 460px drawer to 0 width during the open animation */
   overflow: hidden;
-  transition: width 280ms cubic-bezier(0.4, 0, 0.2, 1);
   /* Exact same sticky contract as NavLeft */
   position: sticky;
   top: calc(80px + 24px);
   height: calc(100vh - 80px - 48px);
   align-self: flex-start;
+  /* Transition only on the open class so media query flips (e.g. mobile
+     fixed-positioned → desktop sticky) don't animate width down from
+     the mobile layout's computed width to 0. */
 }
 
 .drawerSlotOpen {
   width: 460px;
+  transition: width 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ─── Page header ─── */
@@ -165,9 +172,7 @@
     pointer-events: none;
     z-index: 350;
     overflow: hidden;
-    transition:
-      opacity 200ms ease,
-      transform 240ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: none !important;
   }
 
   .drawerSlotOpen {
@@ -176,6 +181,9 @@
     pointer-events: auto !important;
     /* override any desktop width rule */
     width: min(92vw, 460px) !important;
+    transition:
+      opacity 200ms ease,
+      transform 240ms cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 }
 
@@ -194,15 +202,20 @@
     height: auto !important;
     max-height: 88vh !important;
 
-    /* Hidden state: slide off below the viewport (no horizontal scroll artefact) */
+    /* Hidden state: slide off below the viewport, fully transparent so no
+       cross-breakpoint fade occurs when the viewport crosses 640px. */
     transform: translateY(100%);
-    opacity: 1 !important;
-    pointer-events: auto !important;
-
-    transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: none !important;
   }
 
   .drawerSlotOpen {
     transform: translateY(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition:
+      transform 320ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 200ms ease !important;
   }
 }

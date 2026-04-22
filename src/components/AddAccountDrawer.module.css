@@ -19,9 +19,13 @@
   min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-width: thin;
+  scrollbar-width: none;
   display: flex;
   flex-direction: column;
+}
+
+.drawerScroll::-webkit-scrollbar {
+  display: none;
 }
 
 .drawerInner {
