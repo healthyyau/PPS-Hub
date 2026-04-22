@@ -27,10 +27,10 @@ interface Account {
 
 const ACCOUNTS: Account[] = [
   { name: 'J.D.Acc 01', accountId: '55790001', balance: '12,450.00', currency: 'USD', flagSrc: imgUSFlag,  mode: 'Live', accountType: 'Standard', leverage: '1:500',  platform: 'Pepperstone', platformIcon: imgPepperstoneTagIcon },
-  { name: 'J.D.Acc 02', accountId: '55790012', balance: '3,800.00',  currency: 'USD', flagSrc: imgUSFlag,  mode: 'Live', accountType: 'Razor',    leverage: '1:200',  platform: 'MT5',         platformIcon: imgMT5TagIcon },
+  { name: 'J.D.Acc 02', accountId: '55790012', balance: '3,800.00',  currency: 'USD', flagSrc: imgUSFlag,  mode: 'Live', accountType: 'Razor',    leverage: '1:200',  platform: 'MetaTrader5',         platformIcon: imgMT5TagIcon },
   { name: 'J.D.Acc 03', accountId: '55791241', balance: '8,200.00',  currency: 'HKD', flagSrc: imgHKFlag,  mode: 'Live', accountType: 'Standard', leverage: '1:500',  platform: 'TradingView', platformIcon: imgTradingViewTagIcon },
   { name: 'J.D.Acc 04', accountId: '55792388', balance: '0.00',      currency: 'USD', flagSrc: imgUSFlag,  mode: 'Live', accountType: 'Razor',    leverage: '1:100',  platform: 'Pepperstone', platformIcon: imgPepperstoneTagIcon },
-  { name: 'J.D.Acc 05', accountId: '55793512', balance: '50,000.00', currency: 'USD', flagSrc: imgUSFlag,  mode: 'Demo', accountType: 'Razor',    leverage: '1:1000', platform: 'MT5',         platformIcon: imgMT5TagIcon },
+  { name: 'J.D.Acc 05', accountId: '55793512', balance: '50,000.00', currency: 'USD', flagSrc: imgUSFlag,  mode: 'Demo', accountType: 'Razor',    leverage: '1:1000', platform: 'MetaTrader5',         platformIcon: imgMT5TagIcon },
   { name: 'J.D.Acc 06', accountId: '55794677', balance: '100,000.00',currency: 'HKD', flagSrc: imgHKFlag,  mode: 'Demo', accountType: 'Standard', leverage: '1:500',  platform: 'TradingView', platformIcon: imgTradingViewTagIcon },
 ];
 
