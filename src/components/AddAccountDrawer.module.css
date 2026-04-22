@@ -1,0 +1,433 @@
+/* AddAccountDrawer.module.css */
+
+.drawer {
+  width: 460px;
+  min-width: 460px;
+  height: 100%;
+  background: var(--color-background-bg-inverse);
+  border-radius: var(--radius-3xl);
+  /* overflow:hidden clips the scrollbar of the inner scroll container
+     so it stays within the rounded corners */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inner scroll layer — keeps scrollbar inside the border-radius */
+.drawerScroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerInner {
+  padding: 24px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  flex: 1;
+}
+
+/* ─── Header ─── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.backBtn {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--color-text-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 150ms ease;
+}
+
+.backBtn:hover {
+  opacity: 0.6;
+}
+
+.drawerTitle {
+  font-family: var(--typography-h5-font-family);
+  font-size: var(--typography-h5-font-size);
+  font-weight: var(--typography-h5-font-weight);
+  line-height: var(--typography-h5-line-height);
+  color: var(--color-text-default);
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ─── Body ─── */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  flex: 1;
+}
+
+.subtitle {
+  font-family: var(--typography-body-sm-font-family);
+  font-size: var(--typography-body-sm-font-size);
+  font-weight: var(--typography-body-sm-font-weight);
+  line-height: var(--typography-body-sm-line-height);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.subtitleLink {
+  color: var(--color-text-brand);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ─── Section block ─── */
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sectionLabelText {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-default);
+}
+
+.sectionHint {
+  font-family: var(--typography-body-xs-font-family);
+  font-size: var(--typography-body-xs-font-size);
+  font-weight: var(--typography-body-xs-font-weight);
+  line-height: var(--typography-body-xs-line-height);
+  color: var(--color-text-secondary);
+  margin: 4px 0 0;
+}
+
+.infoIcon {
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Platform options ─── */
+.platformOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.platformOption {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  cursor: pointer;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.platformOption:hover {
+  background: var(--color-background-bg-surface);
+}
+
+.platformOptionSelected {
+  border-color: var(--color-background-bg-primary-default);
+}
+
+.platformIconWrap {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.platformInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.platformName {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-default);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.platformDesc {
+  font-family: var(--typography-body-xs-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* ─── Radio button ─── */
+.radioBtn {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.radioBtnSelected {
+  border-color: var(--color-background-bg-primary-default);
+  background: var(--color-background-bg-primary-default);
+}
+
+.radioInner {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+/* ─── Account type ─── */
+.accountTypeRow {
+  display: flex;
+  gap: 12px;
+}
+
+.accountTypeCard {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  background: transparent;
+  text-align: left;
+  overflow: hidden;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.accountTypeCard:hover {
+  background: var(--color-background-bg-surface);
+}
+
+.accountTypeCardSelected {
+  border-color: var(--color-background-bg-primary-default);
+}
+
+.accountTypeCardInner {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accountTypeIconWrap {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.accountTypeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.accountTypeName {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-default);
+  white-space: nowrap;
+}
+
+.accountTypeDesc {
+  font-family: var(--typography-body-xs-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.accountTypeBadge {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  padding: 2px 8px 4px;
+  border-radius: 0 var(--radius-lg) 0 var(--radius-lg);
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.accountTypeBadgeStandard {
+  background: var(--color-background-bg-primary-default);
+}
+
+.accountTypeBadgeRazor {
+  background: linear-gradient(127deg, #0064fa 10%, #8d1be4 80%, #c92be5 104%);
+}
+
+/* ─── Form fields ─── */
+.formBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fieldInput {
+  width: 100%;
+  height: 64px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--color-background-bg-inverse);
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border-color 150ms ease;
+}
+
+.fieldInput:hover {
+  border-color: var(--color-text-secondary);
+}
+
+.fieldContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldLabel {
+  font-family: var(--typography-body-xs-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.fieldValue {
+  font-family: var(--typography-body-sm-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-default);
+}
+
+.fieldPlaceholder {
+  font-family: var(--typography-body-xs-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.chevronWrap {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* ─── Create button ─── */
+.createBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--color-background-bg-primary-default);
+  border: none;
+  border-radius: var(--radius-4xl);
+  padding: 16px 24px;
+  font-family: var(--typography-label-md-font-family);
+  font-size: var(--typography-label-md-font-size);
+  font-weight: var(--typography-label-md-font-weight);
+  line-height: var(--typography-label-md-line-height);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  white-space: nowrap;
+  max-width: 280px;
+  transition: background 150ms ease;
+}
+
+.createBtn:hover {
+  background: var(--color-background-bg-primary-default-hover);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Responsive drawer shape
+
+   ≤ 768px : modal — keep full rounding, fill the modal shell
+   ≤ 640px : bottom sheet — round top corners only
+───────────────────────────────────────────────────────────── */
+
+/* Modal (tablet) — fills its fixed-position wrapper, keeps radius-3xl */
+@media (max-width: 768px) {
+  .drawer {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+  }
+}
+
+/* Bottom sheet (mobile) — round top corners, square bottom, content-height */
+@media (max-width: 640px) {
+  .drawer {
+    border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
+    /* Let the sheet size to its content (capped by the slot's max-height) */
+    height: auto;
+    max-height: 88vh;
+  }
+
+  /* Grab-handle at the top of the sheet */
+  .drawer::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--color-border-subtle);
+    margin: 8px auto 0;
+    flex-shrink: 0;
+  }
+}
+

@@ -1,0 +1,103 @@
+/* AppShell.module.css — shared layout for all top-level pages */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-background-bg-surface);
+  font-family: var(--typography-body-md-font-family);
+  color: var(--color-text-default);
+}
+
+.body {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contentRow {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.mainCanvas {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  container-type: inline-size;
+  container-name: main;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 52px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.pageTitleWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.pageTitle {
+  font-family: var(--typography-h5-font-family);
+  font-size: var(--typography-h5-font-size);
+  font-weight: var(--typography-h5-font-weight);
+  line-height: var(--typography-h5-line-height);
+  color: var(--color-text-default);
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-family: var(--typography-body-sm-font-family);
+  font-size: var(--typography-body-sm-font-size);
+  font-weight: var(--typography-body-sm-font-weight);
+  line-height: var(--typography-body-sm-line-height);
+  color: var(--color-text-subtle);
+  margin: 0;
+}
+
+.pageActions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 20, 46, 0.45);
+  z-index: 299;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+    gap: 0;
+  }
+
+  .contentRow {
+    gap: 0;
+  }
+
+  .mainCanvas {
+    min-width: 0;
+  }
+}

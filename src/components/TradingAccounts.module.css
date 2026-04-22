@@ -1,0 +1,865 @@
+.section {
+  background: var(--color-background-bg-inverse);
+  border-radius: var(--radius-2xl);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+/* ─── Title row ─── */
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.titleLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-family: var(--typography-h5-font-family);
+  font-size: var(--typography-h5-font-size);
+  font-weight: var(--typography-h5-font-weight);
+  line-height: var(--typography-h5-line-height);
+  color: #03142e;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ─── View toggle (list/grid) ─── */
+.viewToggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(3, 20, 46, 0.05);
+  border-radius: 999px;
+  padding: 4px;
+}
+
+.viewBtnIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(3, 20, 46, 0.5);
+  transition: background 150ms ease;
+}
+
+.viewBtnActive {
+  background: var(--color-background-bg-inverse);
+  color: #03142e;
+}
+
+/* ─── Live / Demo toggle ─── */
+.liveToggle {
+  display: flex;
+  align-items: center;
+  background: rgba(3, 20, 46, 0.05);
+  border-radius: 10px;
+  padding: 2px;
+  gap: 0;
+}
+
+.liveBtn {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  color: #03142e;
+  background: var(--color-background-bg-inverse);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  min-width: 64px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demoBtn {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(3, 20, 46, 0.6);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  min-width: 64px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controlDivider {
+  width: 1px;
+  height: 24px;
+  background: var(--color-border-subtle);
+  flex-shrink: 0;
+}
+
+/* Collapsed controls wrapper — hidden on desktop, shown on narrow screens */
+.controlsMoreWrap {
+  display: none;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.controlsMoreBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--color-background-bg-surface);
+  border: none;
+  border-radius: var(--radius-4xl);
+  cursor: pointer;
+  color: var(--color-text-default);
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+
+.controlsMoreBtn:hover,
+.controlsMoreBtnActive {
+  background: var(--color-background-bg-surface-hover);
+}
+
+/* ─── Controls dropdown panel ─── */
+.controlsDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  background: var(--color-background-bg-inverse);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 24px rgba(3, 20, 46, 0.12);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 300;
+}
+
+.cdSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 4px;
+  gap: 12px;
+}
+
+.cdLabel {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.cdDivider {
+  height: 1px;
+  background: var(--color-border-subtle);
+  margin: 2px 0;
+}
+
+.cdAddBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 10px 8px;
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-default);
+  cursor: pointer;
+  text-align: left;
+  transition: background 150ms ease;
+}
+
+.cdAddBtn:hover {
+  background: var(--color-background-bg-surface);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .titleLeft {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .sectionTitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .controls {
+    display: none;
+  }
+
+  .controlsMoreWrap {
+    display: flex;
+  }
+}
+
+/* ─── Drawer open: collapse controls into the … button ─── */
+.sectionCompact .controls {
+  display: none;
+}
+
+.sectionCompact .controlsMoreWrap {
+  display: flex;
+}
+
+.addAccountBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-background-bg-surface);
+  border: none;
+  border-radius: var(--radius-4xl);
+  padding: 8px 16px;
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 12px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-default);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 150ms ease;
+}
+
+.addAccountBtn:hover {
+  background: var(--color-background-bg-surface-hover);
+}
+
+/* ─── Accounts row ─── */
+.accountsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+/* ─── Card ─── */
+.card {
+  min-width: 0;
+  background: var(--color-background-bg-surface);
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTop {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 24px 0;
+}
+
+.cardLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 24px;
+}
+
+.accountName {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.flagBadge {
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+  height: 24px;
+}
+
+.flagWrap {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #ffffff;
+  margin-right: -12px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.flagImg {
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+
+.nameText {
+  font-family: var(--typography-label-md-font-family);
+  font-size: 14px;
+  font-weight: var(--typography-label-md-font-weight);
+  line-height: var(--typography-label-md-line-height);
+  color: var(--color-text-default);
+  white-space: nowrap;
+}
+
+.accountId {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 10px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-disable);
+  white-space: nowrap;
+}
+
+/* ─── Balance card ─── */
+.balanceCard {
+  background: var(--color-background-bg-inverse);
+  border-radius: 24px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.balanceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 16px 12px;
+  font-family: var(--typography-label-md-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: var(--typography-label-md-line-height);
+  color: var(--color-text-default);
+}
+
+.balanceAmount {
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.balanceCurrency {
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.tagsRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 16px 16px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tagsRow::-webkit-scrollbar {
+  display: none;
+}
+
+.tagLive {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-background-bg-primary-subtle);
+  border-radius: 32px;
+  padding: 2px 8px;
+  flex-shrink: 0;
+}
+
+.tagNeutral {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-background-bg-surface);
+  border-radius: 32px;
+  padding: 2px 8px;
+  flex-shrink: 0;
+}
+
+.tagTextLive {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 10px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-brand-secondary);
+  white-space: nowrap;
+}
+
+.tagTextNeutral {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 10px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.tagIconWrap {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.tagIcon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-width: none;
+}
+
+/* ─── CTA row ─── */
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 24px;
+}
+
+.tradeBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--color-background-bg-primary-default);
+  border: none;
+  border-radius: var(--radius-4xl);
+  padding: 8px 16px;
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 12px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 0;
+  transition: background 150ms ease;
+}
+
+.tradeBtn:hover {
+  background: var(--color-background-bg-primary-default-hover);
+}
+
+.tradeIconWrap {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.depositBtn {
+  flex: 1;
+  background: var(--color-background-bg-surface-hover);
+  border: none;
+  border-radius: var(--radius-4xl);
+  padding: 8px 16px;
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 12px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-default);
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 0;
+  transition: background 150ms ease;
+}
+
+.depositBtn:hover {
+  background: var(--color-border-subtle);
+}
+
+/* ─── More menu wrapper ─── */
+.moreWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.moreDropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 200px;
+  background: var(--color-background-bg-inverse);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 24px rgba(3, 20, 46, 0.12);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.moreMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 10px 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 150ms ease;
+}
+
+.moreMenuItem:hover {
+  background: var(--color-background-bg-surface);
+}
+
+.moreMenuIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.moreMenuLabel {
+  font-family: var(--typography-body-sm-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-default);
+  white-space: nowrap;
+}
+
+.moreBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background-bg-surface-hover);
+  border: none;
+  border-radius: var(--radius-4xl);
+  cursor: pointer;
+  color: var(--color-text-default);
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+
+.moreBtn:hover {
+  background: var(--color-border-subtle);
+}
+
+.moreBtnSm {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background-bg-surface);
+  border: none;
+  border-radius: var(--radius-4xl);
+  cursor: pointer;
+  color: var(--color-text-default);
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+
+.moreBtnSm:hover {
+  background: var(--color-background-bg-surface-hover);
+}
+
+/* ─── Trade button (small, list view) ─── */
+.tradeBtnSm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--color-background-bg-primary-default);
+  border: none;
+  border-radius: var(--radius-4xl);
+  padding: 6px 12px;
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 12px;
+  font-weight: var(--typography-label-sm-font-weight);
+  line-height: var(--typography-label-sm-line-height);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+
+.tradeBtnSm:hover {
+  background: var(--color-background-bg-primary-default-hover);
+}
+
+/* ─── List scroll wrapper — allows horizontal scroll on narrow screens ─── */
+.listScroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ─── List view ─── */
+.listView {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: max-content;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 0;
+}
+
+.listRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: max-content;
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: background 150ms ease;
+  position: relative;
+}
+
+.listRow:last-child {
+  border-bottom: none;
+}
+
+.listRow:hover {
+  background: var(--color-background-bg-surface);
+}
+
+/* Lift the row above its siblings while a dropdown is open so the
+   menu isn't covered by the next row's sticky actions cell. */
+.listRow:has([aria-expanded="true"]) {
+  z-index: 20;
+}
+
+.listHeaderText {
+  font-family: var(--typography-label-md-font-family);
+  font-size: 14px;
+  font-weight: var(--typography-label-md-font-weight);
+  color: var(--color-text-default);
+  white-space: nowrap;
+}
+
+/* Flexible cells — grow to share extra space by their flex ratios,
+   shrink down to min-width, and only push the row into horizontal
+   overflow once their content can't be compressed further.
+   flex-basis: 0 (not auto) keeps columns aligned across all rows
+   by sizing purely from the grow ratio, independent of content. */
+.listCellName {
+  flex: 3 1 0;
+  min-width: 164px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+}
+
+.listCell {
+  flex: 2 1 0;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  padding: 20px 8px;
+}
+
+.listCellPlatform {
+  flex: 2 1 0;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 8px;
+}
+
+/* Actions column — sticky on the right.
+   Uses natural width + margin-left:auto so left columns overflow horizontally
+   instead of compressing, while actions stays glued to the right edge.
+   min-width ensures the header's cell has the same extent as the row's
+   action buttons below, so sticky behavior is consistent for both. */
+.listCellActions {
+  --_actions-bg: var(--color-background-bg-inverse);
+  flex: 0 0 auto;
+  min-width: 148px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 12px;
+  margin-left: auto;
+  position: sticky;
+  right: 0;
+  background: var(--_actions-bg);
+  z-index: 2;
+}
+
+/* White fade gradient on the left edge of the sticky actions column
+   so scrolled content underneath disappears smoothly into the column. */
+.listCellActions::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 40px;
+  background: linear-gradient(to right, transparent, var(--_actions-bg));
+  pointer-events: none;
+}
+
+.listRow:hover .listCellActions {
+  --_actions-bg: var(--color-background-bg-surface);
+}
+
+/* Full group: Deposit + Withdraw + MoreMenu — visible on wide layouts */
+.listActionsFullGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Compact more button — hidden on wide layouts */
+.listActionsCompactMore {
+  display: none;
+}
+
+/* Actions cell min-width for full mode — keeps header extent matched
+   with rows so sticky-right behaviour is consistent. */
+.listCellActions { min-width: 344px; }
+
+/* Collapse action buttons to Trade + … only on mobile viewports.
+   On desktop (>768px), the full action set always shows — if the
+   main canvas is narrow, the table just scrolls horizontally instead. */
+@media (max-width: 768px) {
+  .listCellActions { min-width: 148px; }
+  .listActionsFullGroup { display: none; }
+  .listActionsCompactMore { display: flex; }
+}
+
+/* Also collapse when the side drawer is open on screens below 1440px —
+   the drawer eats enough of the main canvas that keeping the full
+   action set would just force horizontal scrolling. */
+@media (max-width: 1439px) {
+  .sectionCompact .listCellActions { min-width: 148px; }
+  .sectionCompact .listActionsFullGroup { display: none; }
+  .sectionCompact .listActionsCompactMore { display: flex; }
+}
+
+/* Flag */
+.listFlag {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Account info (id + name stacked) */
+.listAccountInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.listAccountId {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 10px;
+  font-weight: var(--typography-label-sm-font-weight);
+  color: var(--color-text-disable);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listAccountName {
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 14px;
+  font-weight: var(--typography-label-sm-font-weight);
+  color: var(--color-text-default);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listCellText {
+  font-family: var(--typography-body-md-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-default);
+  white-space: nowrap;
+}
+
+.listPlatformIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.listPlatformName {
+  font-family: var(--typography-body-sm-font-family);
+  font-size: var(--typography-body-sm-font-size);
+  font-weight: var(--typography-body-sm-font-weight);
+  line-height: var(--typography-body-sm-line-height);
+  color: var(--color-text-default);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listActionBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-background-bg-surface);
+  border: none;
+  border-radius: var(--radius-4xl);
+  padding: 6px 12px;
+  font-family: var(--typography-label-sm-font-family);
+  font-size: 12px;
+  font-weight: var(--typography-label-sm-font-weight);
+  color: var(--color-text-default);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+
+.listActionBtn:hover {
+  background: var(--color-background-bg-surface-hover);
+}
