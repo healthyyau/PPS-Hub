@@ -393,13 +393,41 @@
   background: var(--color-background-bg-primary-default-hover);
 }
 
-/* ─── Mobile: full-viewport height ─── */
+/* ─────────────────────────────────────────────────────────────
+   Responsive drawer shape
+
+   ≤ 768px : modal — keep full rounding, fill the modal shell
+   ≤ 640px : bottom sheet — round top corners only
+───────────────────────────────────────────────────────────── */
+
+/* Modal (tablet) — fills its fixed-position wrapper, keeps radius-3xl */
 @media (max-width: 768px) {
   .drawer {
     width: 100%;
     min-width: 0;
-    border-radius: 0;
     height: 100%;
+  }
+}
+
+/* Bottom sheet (mobile) — round top corners, square bottom, content-height */
+@media (max-width: 640px) {
+  .drawer {
+    border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
+    /* Let the sheet size to its content (capped by the slot's max-height) */
+    height: auto;
+    max-height: 88vh;
+  }
+
+  /* Grab-handle at the top of the sheet */
+  .drawer::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--color-border-subtle);
+    margin: 8px auto 0;
+    flex-shrink: 0;
   }
 }
 

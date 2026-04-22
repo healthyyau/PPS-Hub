@@ -1,0 +1,51 @@
+/* Tabs — horizontal underline tabs shared across pages */
+
+.tabs {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border-subtle);
+  width: 100%;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: stretch;
+  padding: 8px 0 0 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--typography-label-md-font-family);
+  color: var(--color-text-subtle);
+}
+
+.tabLabel {
+  font-size: var(--typography-label-md-font-size);
+  font-weight: var(--typography-label-md-font-weight);
+  line-height: var(--typography-label-md-line-height);
+  color: inherit;
+  padding: 0 2px;
+  white-space: nowrap;
+  transition: color 150ms ease;
+}
+
+.tabUnderline {
+  height: 2px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  transition: background 150ms ease;
+}
+
+.tabActive .tabLabel {
+  color: var(--color-text-default);
+}
+
+.tabActive .tabUnderline {
+  background: var(--color-border-brand);
+}
+
+.tab:hover:not(.tabActive) .tabLabel {
+  color: var(--color-text-default);
+}

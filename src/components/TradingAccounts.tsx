@@ -1,13 +1,16 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './TradingAccounts.module.css';
 
-const imgUSFlag = 'https://www.figma.com/api/mcp/asset/dc667e21-e248-4c13-9ae3-40d98350585a';
-const imgHKFlag = 'https://www.figma.com/api/mcp/asset/4936def7-4086-4270-859f-f6e6d4a060f1';
-const imgPepperstoneTagIcon = 'https://www.figma.com/api/mcp/asset/c7ce915f-7bc3-4a79-ac43-21eb2d9c8ed3';
-const imgMT5TagIcon = 'https://www.figma.com/api/mcp/asset/ed83f483-7c38-4210-be69-2969796371f3';
-const imgTradingViewTagIcon = 'https://www.figma.com/api/mcp/asset/02cd2899-07b9-45bd-b92d-0d6c5ef7b7d0';
-const imgTradeArrow = 'https://www.figma.com/api/mcp/asset/8df7fe0a-d0c4-4a40-873f-f0f115b8e0d9';
-const imgTradeUnion = 'https://www.figma.com/api/mcp/asset/8720edd9-a1fe-40a6-97d0-89bc2309e352';
+const imgUSFlag = 'https://www.figma.com/api/mcp/asset/50055e42-cf72-4cc4-9f7d-b53c267a21c7';
+const imgHKFlag = 'https://www.figma.com/api/mcp/asset/a4a873c7-e756-4067-9c77-9f4bf5fe54f7';
+const imgPepperstoneTagIcon = 'https://www.figma.com/api/mcp/asset/1e3b89c1-68c1-4cfe-8bd3-feff8945cc8e';
+// Use the same MT5 logo asset as AddAccountDrawer (correct glyph)
+const imgMT5TagIcon = 'https://www.figma.com/api/mcp/asset/3394d238-926a-4bef-8293-c0b12aa06789';
+// Use the same flat TradingView logo asset as AddAccountDrawer (correct ratio)
+const imgTradingViewTagIcon = 'https://www.figma.com/api/mcp/asset/ab6f63b0-5f1f-4563-9fa8-5784802ea67b';
+const imgTradeArrow = 'https://www.figma.com/api/mcp/asset/6dcad085-de88-4804-b96d-a5c29ad17d8d';
+const imgTradeUnion = 'https://www.figma.com/api/mcp/asset/63516999-7c88-47dc-8b7f-b2a51bb6fe8a';
 
 interface Account {
   name: string;
@@ -24,10 +27,10 @@ interface Account {
 
 const ACCOUNTS: Account[] = [
   { name: 'J.D.Acc 01', accountId: '55790001', balance: '12,450.00', currency: 'USD', flagSrc: imgUSFlag,  mode: 'Live', accountType: 'Standard', leverage: '1:500',  platform: 'Pepperstone', platformIcon: imgPepperstoneTagIcon },
-  { name: 'J.D.Acc 02', accountId: '55790012', balance: '3,800.00',  currency: 'USD', flagSrc: imgUSFlag,  mode: 'Live', accountType: 'Razor',    leverage: '1:200',  platform: 'MT5',         platformIcon: imgMT5TagIcon },
+  { name: 'J.D.Acc 02', accountId: '55790012', balance: '3,800.00',  currency: 'USD', flagSrc: imgUSFlag,  mode: 'Live', accountType: 'Razor',    leverage: '1:200',  platform: 'MetaTrader5',         platformIcon: imgMT5TagIcon },
   { name: 'J.D.Acc 03', accountId: '55791241', balance: '8,200.00',  currency: 'HKD', flagSrc: imgHKFlag,  mode: 'Live', accountType: 'Standard', leverage: '1:500',  platform: 'TradingView', platformIcon: imgTradingViewTagIcon },
   { name: 'J.D.Acc 04', accountId: '55792388', balance: '0.00',      currency: 'USD', flagSrc: imgUSFlag,  mode: 'Live', accountType: 'Razor',    leverage: '1:100',  platform: 'Pepperstone', platformIcon: imgPepperstoneTagIcon },
-  { name: 'J.D.Acc 05', accountId: '55793512', balance: '50,000.00', currency: 'USD', flagSrc: imgUSFlag,  mode: 'Demo', accountType: 'Razor',    leverage: '1:1000', platform: 'MT5',         platformIcon: imgMT5TagIcon },
+  { name: 'J.D.Acc 05', accountId: '55793512', balance: '50,000.00', currency: 'USD', flagSrc: imgUSFlag,  mode: 'Demo', accountType: 'Razor',    leverage: '1:1000', platform: 'MetaTrader5',         platformIcon: imgMT5TagIcon },
   { name: 'J.D.Acc 06', accountId: '55794677', balance: '100,000.00',currency: 'HKD', flagSrc: imgHKFlag,  mode: 'Demo', accountType: 'Standard', leverage: '1:500',  platform: 'TradingView', platformIcon: imgTradingViewTagIcon },
 ];
 
@@ -81,23 +84,66 @@ const MORE_MENU_ITEMS = [
   },
 ];
 
-function MoreMenu({ size }: { size?: 'sm' }) {
+function MoreMenu({ size, items = MORE_MENU_ITEMS }: { size?: 'sm'; items?: typeof MORE_MENU_ITEMS }) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [rect, setRect] = useState<DOMRect | null>(null);
+  const isList = size === 'sm';
 
   useEffect(() => {
     if (!open) return;
     function handleOutside(e: MouseEvent) {
-      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false);
+      const t = e.target as Node;
+      if (!wrapRef.current?.contains(t) && !dropdownRef.current?.contains(t)) setOpen(false);
     }
     document.addEventListener('mousedown', handleOutside);
     return () => document.removeEventListener('mousedown', handleOutside);
   }, [open]);
 
+  useLayoutEffect(() => {
+    if (!open || !isList) return;
+    const update = () => {
+      if (btnRef.current) setRect(btnRef.current.getBoundingClientRect());
+    };
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('scroll', update, true);
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update, true);
+    };
+  }, [open, isList]);
+
+  const dropdown = (
+    <div
+      ref={dropdownRef}
+      className={styles.moreDropdown}
+      style={isList && rect ? {
+        position: 'fixed',
+        top: rect.bottom + 6,
+        right: window.innerWidth - rect.right,
+      } : undefined}
+    >
+      {items.map(item => (
+        <button
+          key={item.label}
+          className={styles.moreMenuItem}
+          onClick={() => setOpen(false)}
+        >
+          <span className={styles.moreMenuIcon}>{item.icon}</span>
+          <span className={styles.moreMenuLabel}>{item.label}</span>
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <div className={styles.moreWrap} ref={wrapRef}>
       <button
-        className={size === 'sm' ? styles.moreBtnSm : styles.moreBtn}
+        ref={btnRef}
+        className={isList ? styles.moreBtnSm : styles.moreBtn}
         aria-label="More options"
         aria-expanded={open}
         onClick={() => setOpen(o => !o)}
@@ -109,19 +155,9 @@ function MoreMenu({ size }: { size?: 'sm' }) {
         </svg>
       </button>
 
-      {open && (
-        <div className={`${styles.moreDropdown}${size === 'sm' ? ` ${styles.moreDropdownLeft}` : ''}`}>
-          {MORE_MENU_ITEMS.map(item => (
-            <button
-              key={item.label}
-              className={styles.moreMenuItem}
-              onClick={() => setOpen(false)}
-            >
-              <span className={styles.moreMenuIcon}>{item.icon}</span>
-              <span className={styles.moreMenuLabel}>{item.label}</span>
-            </button>
-          ))}
-        </div>
+      {open && (isList
+        ? (rect && createPortal(dropdown, document.body))
+        : dropdown
       )}
     </div>
   );
@@ -198,14 +234,32 @@ function AccountRow({ account }: { account: Account }) {
   const { name, accountId, balance, currency, flagSrc, mode, platform, platformIcon, leverage } = account;
   const [rowMoreOpen, setRowMoreOpen] = useState(false);
   const rowMoreRef = useRef<HTMLDivElement>(null);
+  const rowMoreBtnRef = useRef<HTMLButtonElement>(null);
+  const rowMoreDropdownRef = useRef<HTMLDivElement>(null);
+  const [rowMoreRect, setRowMoreRect] = useState<DOMRect | null>(null);
 
   useEffect(() => {
     if (!rowMoreOpen) return;
     function handleOutside(e: MouseEvent) {
-      if (rowMoreRef.current && !rowMoreRef.current.contains(e.target as Node)) setRowMoreOpen(false);
+      const t = e.target as Node;
+      if (!rowMoreRef.current?.contains(t) && !rowMoreDropdownRef.current?.contains(t)) setRowMoreOpen(false);
     }
     document.addEventListener('mousedown', handleOutside);
     return () => document.removeEventListener('mousedown', handleOutside);
+  }, [rowMoreOpen]);
+
+  useLayoutEffect(() => {
+    if (!rowMoreOpen) return;
+    const update = () => {
+      if (rowMoreBtnRef.current) setRowMoreRect(rowMoreBtnRef.current.getBoundingClientRect());
+    };
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('scroll', update, true);
+    return () => {
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update, true);
+    };
   }, [rowMoreOpen]);
 
   return (
@@ -258,12 +312,13 @@ function AccountRow({ account }: { account: Account }) {
             </svg>
             <span>Withdraw</span>
           </button>
-          <MoreMenu size="sm" />
+          <MoreMenu size="sm" items={MORE_MENU_ITEMS.filter(i => i.label !== 'Withdraw')} />
         </div>
 
         {/* Compact layout: single … button with all actions */}
         <div className={`${styles.moreWrap} ${styles.listActionsCompactMore}`} ref={rowMoreRef}>
           <button
+            ref={rowMoreBtnRef}
             className={styles.moreBtnSm}
             aria-label="More options"
             aria-expanded={rowMoreOpen}
@@ -275,8 +330,16 @@ function AccountRow({ account }: { account: Account }) {
               <circle cx="13" cy="8" r="1.5" fill="currentColor" />
             </svg>
           </button>
-          {rowMoreOpen && (
-            <div className={`${styles.moreDropdown} ${styles.moreDropdownLeft}`}>
+          {rowMoreOpen && rowMoreRect && createPortal(
+            <div
+              ref={rowMoreDropdownRef}
+              className={styles.moreDropdown}
+              style={{
+                position: 'fixed',
+                top: rowMoreRect.bottom + 6,
+                right: window.innerWidth - rowMoreRect.right,
+              }}
+            >
               <button className={styles.moreMenuItem} onClick={() => setRowMoreOpen(false)}>
                 <span className={styles.moreMenuIcon}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -291,7 +354,8 @@ function AccountRow({ account }: { account: Account }) {
                   <span className={styles.moreMenuLabel}>{item.label}</span>
                 </button>
               ))}
-            </div>
+            </div>,
+            document.body
           )}
         </div>
       </div>

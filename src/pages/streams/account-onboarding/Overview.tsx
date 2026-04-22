@@ -38,6 +38,7 @@ export default function Overview(): React.ReactElement {
             isOpen={mobileNavOpen}
             onClose={() => setMobileNavOpen(false)}
             forceCollapsed={addAccountOpen}
+            activeKey="home"
           />
 
           {/* Content + push drawer */}

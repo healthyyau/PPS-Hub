@@ -50,20 +50,21 @@ interface NavItemProps {
   collapsedLabel?: string;
   active?: boolean;
   collapsed?: boolean;
+  onClick?: () => void;
 }
 
-function NavItem({ icon, label, collapsedLabel, active, collapsed }: NavItemProps) {
+function NavItem({ icon, label, collapsedLabel, active, collapsed, onClick }: NavItemProps) {
   const baseClass = active
     ? (collapsed ? styles.navItemActiveCollapsed : styles.navItemActive)
     : (collapsed ? styles.navItemCollapsed : styles.navItem);
 
   return (
-    <div className={baseClass}>
+    <button type="button" className={baseClass} onClick={onClick}>
       <div className={collapsed ? styles.navIconLg : styles.navIcon}>{icon}</div>
       <span className={collapsed ? styles.navLabelSm : styles.navLabel}>
         {collapsed ? (collapsedLabel ?? label) : label}
       </span>
-    </div>
+    </button>
   );
 }
 
@@ -86,14 +87,22 @@ interface NavLeftProps {
   onClose?: () => void;
   /** Force icon-only collapsed state (e.g. when Add Account drawer is open) */
   forceCollapsed?: boolean;
+  /** Which nav item is currently active */
+  activeKey?: NavKey;
 }
 
-export default function NavLeft({ isOpen, onClose, forceCollapsed }: NavLeftProps) {
+export default function NavLeft({ isOpen, onClose, forceCollapsed, activeKey }: NavLeftProps) {
   const autoCollapsed = useCollapsed();
   // On mobile nav open: always show expanded form
   // forceCollapsed overrides everything (e.g. add account drawer open)
   const collapsed = forceCollapsed ? true : (autoCollapsed && !isOpen);
   const size = collapsed ? 24 : 20;
+
+  const [, navigate] = useRoute();
+  function go(next: NavKey) {
+    onClose?.();
+    navigate(next);
+  }
 
   const asideClass = [
     collapsed ? styles.sidebarCollapsed : styles.sidebar,
@@ -104,37 +113,39 @@ export default function NavLeft({ isOpen, onClose, forceCollapsed }: NavLeftProp
     <aside className={asideClass}>
       <div className={styles.top}>
         <div className={styles.navList}>
-          {/* WebTrader — active primary button (layered composite icon) */}
+          {/* WebTrader — active primary button (chart-bar icon) */}
           <div className={collapsed ? styles.webTraderBtnCollapsed : styles.webTraderBtn}>
             <div className={collapsed ? styles.navIconLg : styles.webTraderIconWrap}>
-              <img alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', maxWidth: 'none' }}
-                src={collapsed ? imgUtility20Px1 : imgUtility20Px} />
-              <div style={{ position: 'absolute', inset: '11.88% 8.75% 15% 8.75%' }}>
-                <img alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', maxWidth: 'none' }}
-                  src={collapsed ? imgUnion1 : imgUnion} />
-              </div>
+              <img alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', maxWidth: 'none', objectFit: 'contain' }}
+                src={collapsed ? imgUnion1 : imgUnion} />
             </div>
             <span className={collapsed ? styles.webTraderLabelCollapsed : styles.webTraderLabel}>
               {collapsed ? 'Trade' : 'WebTrader'}
             </span>
           </div>
 
-          <NavItem collapsed={collapsed} active label="Home"
+          <NavItem collapsed={collapsed} active={activeKey === 'home'} label="Home"
+            onClick={() => go('home')}
             icon={<Ico src={collapsed ? imgVector7 : imgVector1} size={size} />} />
 
-          <NavItem collapsed={collapsed} label="Funds"
+          <NavItem collapsed={collapsed} active={activeKey === 'funds'} label="Funds"
+            onClick={() => go('funds')}
             icon={<Ico src={collapsed ? imgVector8 : imgVector2} size={size} />} />
 
-          <NavItem collapsed={collapsed} label="Trading tools" collapsedLabel="Tools"
+          <NavItem collapsed={collapsed} active={activeKey === 'trading-tools'} label="Trading tools" collapsedLabel="Tools"
+            onClick={() => go('trading-tools')}
             icon={<Ico src={collapsed ? imgIcon12 : imgIcon1} size={size} />} />
 
-          <NavItem collapsed={collapsed} label="Partners"
+          <NavItem collapsed={collapsed} active={activeKey === 'partners'} label="Partners"
+            onClick={() => go('partners')}
             icon={<Ico src={collapsed ? imgIcon13 : imgIcon2} size={size} />} />
 
-          <NavItem collapsed={collapsed} label="Refer a friend" collapsedLabel="Referrals"
+          <NavItem collapsed={collapsed} active={activeKey === 'refer-a-friend'} label="Refer a friend" collapsedLabel="Referrals"
+            onClick={() => go('refer-a-friend')}
             icon={<Ico src={collapsed ? imgIcon14 : imgIcon3} size={size} />} />
 
-          <NavItem collapsed={collapsed} label="Profile settings" collapsedLabel="Settings"
+          <NavItem collapsed={collapsed} active={activeKey === 'profile-settings'} label="Profile settings" collapsedLabel="Settings"
+            onClick={() => go('profile-settings')}
             icon={<Ico src={collapsed ? imgVector9 : imgVector3} size={size} />} />
         </div>
       </div>

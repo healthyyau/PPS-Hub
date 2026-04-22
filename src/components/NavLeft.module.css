@@ -123,6 +123,14 @@
   cursor: pointer;
   width: 100%;
   transition: background 150ms ease;
+<<<<<<< Hub-1.0.0
+=======
+  background: transparent;
+  border: none;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+>>>>>>> main
 }
 
 .navItem:hover {
@@ -138,6 +146,10 @@
   cursor: pointer;
   width: 100%;
   background: var(--color-background-bg-surface);
+  border: none;
+  font: inherit;
+  text-align: left;
+  color: inherit;
 }
 
 /* ─── Nav items — collapsed ─── */
@@ -152,6 +164,10 @@
   cursor: pointer;
   width: 100%;
   transition: background 150ms ease;
+  background: transparent;
+  border: none;
+  font: inherit;
+  color: inherit;
 }
 
 .navItemCollapsed:hover {
@@ -169,6 +185,9 @@
   cursor: pointer;
   width: 100%;
   background: var(--color-background-bg-surface);
+  border: none;
+  font: inherit;
+  color: inherit;
 }
 
 /* ─── Nav labels ─── */

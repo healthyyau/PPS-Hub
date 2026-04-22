@@ -1,12 +1,12 @@
 import styles from './ReferFriend.module.css';
 
-const imgHandshake = 'https://www.figma.com/api/mcp/asset/baab994e-d264-409b-8c7c-18c7d075f675';
-const imgOverlay = 'https://www.figma.com/api/mcp/asset/13052614-7a1e-4edc-a298-8928baa578a8';
-const imgIconCopy = 'https://www.figma.com/api/mcp/asset/4a43dc3d-3e28-4288-9305-66cb87a2921d';
-const imgIconLearn = 'https://www.figma.com/api/mcp/asset/9e1f7365-ca29-4ca2-b132-d8f43bf108f6';
-const imgDecor1Vector = 'https://www.figma.com/api/mcp/asset/e8572435-daf2-4bbe-a1c0-f232b0480b51';
-const imgDecor1Shape = 'https://www.figma.com/api/mcp/asset/131a413f-646e-4680-918d-1ca92268b9c2';
-const imgDecor2Shape = 'https://www.figma.com/api/mcp/asset/59bb2e86-7464-4ea4-9170-f53d4232ca10';
+const imgHandshake = 'https://www.figma.com/api/mcp/asset/b3528637-01e0-4f15-8b42-54885655417c';
+const imgOverlay = 'https://www.figma.com/api/mcp/asset/251cda8d-20e8-4b28-a5c6-11b3f5cea966';
+const imgIconCopy = 'https://www.figma.com/api/mcp/asset/85ec62da-792d-4444-994a-eed359788f03';
+const imgIconLearn = 'https://www.figma.com/api/mcp/asset/85ec62da-792d-4444-994a-eed359788f03';
+const imgDecor1Vector = 'https://www.figma.com/api/mcp/asset/13e9c051-118b-4e5d-8518-045c28277ce0';
+const imgDecor1Shape = 'https://www.figma.com/api/mcp/asset/6fc30abb-dc18-4465-9fa5-85b84085e76b';
+const imgDecor2Shape = 'https://www.figma.com/api/mcp/asset/0349c5fd-afa2-4959-8e81-7fcb60c62a1e';
 
 const REFERRAL_LINK = 'https://trk.pepperstonepartners.com/aff_c?offer_id=367&aff_id=33155';
 
