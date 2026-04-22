@@ -1,16 +1,16 @@
 import styles from './TradingPlatforms.module.css';
 
-const imgMT5Icon = 'https://www.figma.com/api/mcp/asset/bbd0f5ab-88c6-416d-9146-61a5cb2fa374';
-const imgCheckWhite = 'https://www.figma.com/api/mcp/asset/fecfaa20-2bb7-479c-90c7-3b6523dd1a6a';
-const imgArrowWhite = 'https://www.figma.com/api/mcp/asset/53d0bbc0-2d3f-4b86-8c8a-9979c98cad43';
-const imgUnionWhite = 'https://www.figma.com/api/mcp/asset/a67eb20a-5c58-42ee-a1b0-b5d45f879635';
-const imgMT4Icon = 'https://www.figma.com/api/mcp/asset/69d8c046-5d26-479a-af3c-19605d99d68e';
-const imgCheckDark = 'https://www.figma.com/api/mcp/asset/4b06a9fb-4410-4963-8e51-29146c058665';
-const imgArrowDark = 'https://www.figma.com/api/mcp/asset/53d0bbc0-2d3f-4b86-8c8a-9979c98cad43';
-const imgUnionDark = 'https://www.figma.com/api/mcp/asset/73c318bc-d059-4cf2-97d4-9a5f7e50b027';
-const imgPepperstoneIcon = 'https://www.figma.com/api/mcp/asset/a0114ba4-238f-4931-97b4-8a5d59236172';
-const imgTradingViewIcon = 'https://www.figma.com/api/mcp/asset/17f6e464-ecdb-4c3c-846c-aa0ce075bbae';
-const imgCTraderIcon = 'https://www.figma.com/api/mcp/asset/fbc1bd1f-323e-4135-9205-39f0628d084b';
+const imgMT5Icon = 'https://www.figma.com/api/mcp/asset/768a4482-409a-417f-902f-d70c852ab3bf';
+const imgCheckWhite = 'https://www.figma.com/api/mcp/asset/96342932-cbd7-431a-b380-cd5415f5011d';
+const imgArrowWhite = 'https://www.figma.com/api/mcp/asset/f758e7cf-740f-47c0-8948-3e8294d662f8';
+const imgUnionWhite = 'https://www.figma.com/api/mcp/asset/66d89e19-b0ba-4a07-b3ef-26708bec15a2';
+const imgMT4Icon = 'https://www.figma.com/api/mcp/asset/68d569eb-f161-4a0b-af98-3078bdda0c48';
+const imgCheckDark = 'https://www.figma.com/api/mcp/asset/f3b90838-f426-4ba2-80bf-675cc650ab89';
+const imgArrowDark = 'https://www.figma.com/api/mcp/asset/f758e7cf-740f-47c0-8948-3e8294d662f8';
+const imgUnionDark = 'https://www.figma.com/api/mcp/asset/bc7abadc-f325-4b16-997e-c839abd2307d';
+const imgPepperstoneIcon = 'https://www.figma.com/api/mcp/asset/2bffe8b0-82a0-4f55-b143-3f5143c37ccd';
+const imgTradingViewIcon = 'https://www.figma.com/api/mcp/asset/4329ab23-c53e-40d8-8f6a-ad84862b6693';
+const imgCTraderIcon = 'https://www.figma.com/api/mcp/asset/9751cbcf-1772-49c6-afea-19f2c738471e';
 
 interface FeaturePoint {
   text: string;

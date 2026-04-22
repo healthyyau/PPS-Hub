@@ -1,7 +1,7 @@
 import styles from './StepContainer.module.css';
 
-const imgDepositIcon = 'https://www.figma.com/api/mcp/asset/3f6301b3-4839-4362-bfee-80139e7ced8d';
-const imgUnion = 'https://www.figma.com/api/mcp/asset/c7bda41e-19d3-4684-9fb6-0c875d275993';
+const imgDepositIcon = 'https://www.figma.com/api/mcp/asset/464632ae-d976-459c-b24c-ea328eb9e4b8';
+const imgUnion = 'https://www.figma.com/api/mcp/asset/b6bacb5d-eb12-4029-a88b-d5fe9666ccbf';
 
 interface StepProps {
   number: number;

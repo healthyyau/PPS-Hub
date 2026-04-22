@@ -2,13 +2,13 @@ import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './TradingAccounts.module.css';
 
-const imgUSFlag = 'https://www.figma.com/api/mcp/asset/dc667e21-e248-4c13-9ae3-40d98350585a';
-const imgHKFlag = 'https://www.figma.com/api/mcp/asset/4936def7-4086-4270-859f-f6e6d4a060f1';
-const imgPepperstoneTagIcon = 'https://www.figma.com/api/mcp/asset/c7ce915f-7bc3-4a79-ac43-21eb2d9c8ed3';
-const imgMT5TagIcon = 'https://www.figma.com/api/mcp/asset/ed83f483-7c38-4210-be69-2969796371f3';
-const imgTradingViewTagIcon = 'https://www.figma.com/api/mcp/asset/02cd2899-07b9-45bd-b92d-0d6c5ef7b7d0';
-const imgTradeArrow = 'https://www.figma.com/api/mcp/asset/8df7fe0a-d0c4-4a40-873f-f0f115b8e0d9';
-const imgTradeUnion = 'https://www.figma.com/api/mcp/asset/8720edd9-a1fe-40a6-97d0-89bc2309e352';
+const imgUSFlag = 'https://www.figma.com/api/mcp/asset/50055e42-cf72-4cc4-9f7d-b53c267a21c7';
+const imgHKFlag = 'https://www.figma.com/api/mcp/asset/a4a873c7-e756-4067-9c77-9f4bf5fe54f7';
+const imgPepperstoneTagIcon = 'https://www.figma.com/api/mcp/asset/1e3b89c1-68c1-4cfe-8bd3-feff8945cc8e';
+const imgMT5TagIcon = 'https://www.figma.com/api/mcp/asset/91f48d0c-d448-4b9c-829a-ac5d6fbc219c';
+const imgTradingViewTagIcon = 'https://www.figma.com/api/mcp/asset/7ad1821d-762b-47d4-a987-f8afcb97f334';
+const imgTradeArrow = 'https://www.figma.com/api/mcp/asset/6dcad085-de88-4804-b96d-a5c29ad17d8d';
+const imgTradeUnion = 'https://www.figma.com/api/mcp/asset/63516999-7c88-47dc-8b7f-b2a51bb6fe8a';
 
 interface Account {
   name: string;

@@ -1,11 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from './Navbar.module.css';
+import { navbarLogoV1, navbarLogoSubtract, navbarLogoV2, navbarDeposit, navbarBell } from './navIcons';
 
-const imgVector = 'https://www.figma.com/api/mcp/asset/748b86d1-a142-4e0a-9ea5-68970994ab33';
-const imgSubtract = 'https://www.figma.com/api/mcp/asset/a12bae3f-d8e5-4f77-a762-da04a800c4e3';
-const imgVector1 = 'https://www.figma.com/api/mcp/asset/e291e6b2-65ca-4ac2-8d61-6c401e149085';
-const imgDepositIcon = 'https://www.figma.com/api/mcp/asset/a587dc18-b0be-402b-b98a-97523ac3ca66';
-const imgBellIcon = 'https://www.figma.com/api/mcp/asset/e2f496d7-2a31-4f70-b688-5782725fff11';
+const imgVector      = navbarLogoV1;
+const imgSubtract    = navbarLogoSubtract;
+const imgVector1     = navbarLogoV2;
+const imgDepositIcon = navbarDeposit;
+const imgBellIcon    = navbarBell;
 
 /* ─── Notifications ─── */
 interface Notification {
