@@ -1,32 +1,27 @@
 import { useState, useEffect } from 'react';
 import styles from './NavLeft.module.css';
-import { useRoute, type NavKey } from '../router';
-import {
-  navHome, navFunds, navTools, navPartners, navRefer, navSettings,
-  navHome24, navFunds24, navTools24, navPartners24, navRefer24, navSettings24,
-  webTraderIcon, webTraderIcon24,
-  navProSupport, navPepperstone,
-} from './navIcons';
 
-// ─── Expanded icon assets (20px) — inlined as data URIs in ./navIcons ───
-const imgVector1         = navHome;
-const imgVector2         = navFunds;
-const imgIcon1           = navTools;
-const imgIcon2           = navPartners;
-const imgIcon3           = navRefer;
-const imgVector3         = navSettings;
-const imgVector4         = navProSupport;
-const imgPepperstoneIcon = navPepperstone;
-const imgUnion           = webTraderIcon;
+// ─── Expanded icon assets (20px) ───
+const imgUtility20Px    = 'https://www.figma.com/api/mcp/asset/bf71eecd-0d29-421f-9574-fc76dd37e836';
+const imgUnion          = 'https://www.figma.com/api/mcp/asset/09ef5b04-f551-45ae-9af0-b11dd49f6acb';
+const imgVector1        = 'https://www.figma.com/api/mcp/asset/f8d9aa2f-5782-4387-8784-11a7233a7adb'; // Home
+const imgVector2        = 'https://www.figma.com/api/mcp/asset/71145e97-5fb2-4c89-bc40-7d7db1670097'; // Funds
+const imgIcon1          = 'https://www.figma.com/api/mcp/asset/e8817b27-d225-47d4-8783-1cebe9f23019'; // Tools
+const imgIcon2          = 'https://www.figma.com/api/mcp/asset/3bd06b13-9f0c-4379-8517-61543a7cc2b0'; // Partners
+const imgIcon3          = 'https://www.figma.com/api/mcp/asset/536450a3-9fe4-4b3a-a29f-fbc792a02cb6'; // Refer
+const imgVector3        = 'https://www.figma.com/api/mcp/asset/694937b0-75cd-49b1-910b-db8b5b72d9e5'; // Settings
+const imgVector4        = 'https://www.figma.com/api/mcp/asset/6a859d76-b40d-4d1b-9c93-e18f20366d75'; // Pro / Support
+const imgPepperstoneIcon= 'https://www.figma.com/api/mcp/asset/6a8623be-dedb-4d83-b4ff-5a621ce789d6'; // Pepperstone
 
 // ─── Collapsed icon assets (24px) ───
-const imgVector7  = navHome24;
-const imgVector8  = navFunds24;
-const imgIcon12   = navTools24;
-const imgIcon13   = navPartners24;
-const imgIcon14   = navRefer24;
-const imgVector9  = navSettings24;
-const imgUnion1   = webTraderIcon24;
+const imgUtility20Px1  = 'https://www.figma.com/api/mcp/asset/376ebe04-71c6-4beb-98bc-bc1a1d8f5cac'; // WebTrader
+const imgUnion1        = 'https://www.figma.com/api/mcp/asset/3d638ce0-2b98-40d0-a4ff-aea055fc86c7';
+const imgVector7       = 'https://www.figma.com/api/mcp/asset/5d79c7d0-5cbe-47e2-9255-e6d9a1695d84'; // Home
+const imgVector8       = 'https://www.figma.com/api/mcp/asset/c94d8da7-4299-4d0a-abbc-1a5fc2c1776b'; // Funds
+const imgIcon12        = 'https://www.figma.com/api/mcp/asset/02000194-a3aa-4ba8-a435-f4a7cdc54939'; // Tools
+const imgIcon13        = 'https://www.figma.com/api/mcp/asset/7ab32d6a-75af-4a2a-9b1d-9303c3050acb'; // Partners
+const imgIcon14        = 'https://www.figma.com/api/mcp/asset/3b881055-79d2-40e5-a15c-4be57ecd32aa'; // Referrals
+const imgVector9       = 'https://www.figma.com/api/mcp/asset/dad550e5-c76e-41c3-b68d-9a1935f81e9f'; // Settings
 
 function useCollapsed() {
   const [collapsed, setCollapsed] = useState(window.innerWidth < 1440);
