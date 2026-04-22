@@ -9,7 +9,8 @@ const imgCheckDark = 'https://www.figma.com/api/mcp/asset/f3b90838-f426-4ba2-80b
 const imgArrowDark = 'https://www.figma.com/api/mcp/asset/f758e7cf-740f-47c0-8948-3e8294d662f8';
 const imgUnionDark = 'https://www.figma.com/api/mcp/asset/bc7abadc-f325-4b16-997e-c839abd2307d';
 const imgPepperstoneIcon = 'https://www.figma.com/api/mcp/asset/2bffe8b0-82a0-4f55-b143-3f5143c37ccd';
-const imgTradingViewIcon = 'https://www.figma.com/api/mcp/asset/4329ab23-c53e-40d8-8f6a-ad84862b6693';
+// Use the same flat TradingView logo asset as AddAccountDrawer (correct ratio)
+const imgTradingViewIcon = 'https://www.figma.com/api/mcp/asset/ab6f63b0-5f1f-4563-9fa8-5784802ea67b';
 const imgCTraderIcon = 'https://www.figma.com/api/mcp/asset/9751cbcf-1772-49c6-afea-19f2c738471e';
 
 interface FeaturePoint {

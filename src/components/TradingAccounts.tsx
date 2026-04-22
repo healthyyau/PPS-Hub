@@ -6,7 +6,8 @@ const imgUSFlag = 'https://www.figma.com/api/mcp/asset/50055e42-cf72-4cc4-9f7d-b
 const imgHKFlag = 'https://www.figma.com/api/mcp/asset/a4a873c7-e756-4067-9c77-9f4bf5fe54f7';
 const imgPepperstoneTagIcon = 'https://www.figma.com/api/mcp/asset/1e3b89c1-68c1-4cfe-8bd3-feff8945cc8e';
 const imgMT5TagIcon = 'https://www.figma.com/api/mcp/asset/91f48d0c-d448-4b9c-829a-ac5d6fbc219c';
-const imgTradingViewTagIcon = 'https://www.figma.com/api/mcp/asset/7ad1821d-762b-47d4-a987-f8afcb97f334';
+// Use the same flat TradingView logo asset as AddAccountDrawer (correct ratio)
+const imgTradingViewTagIcon = 'https://www.figma.com/api/mcp/asset/ab6f63b0-5f1f-4563-9fa8-5784802ea67b';
 const imgTradeArrow = 'https://www.figma.com/api/mcp/asset/6dcad085-de88-4804-b96d-a5c29ad17d8d';
 const imgTradeUnion = 'https://www.figma.com/api/mcp/asset/63516999-7c88-47dc-8b7f-b2a51bb6fe8a';
 
