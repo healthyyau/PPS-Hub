@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git worktree *)",
+      "Bash(git pull *)",
+      "Bash(curl -sI \"https://www.figma.com/api/mcp/asset/f8d9aa2f-5782-4387-8784-11a7233a7adb\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code} %{content_type}' https://www.figma.com/api/mcp/asset/__TRACKED_VAR__)",
+      "mcp__6f980752-c43d-4038-8976-a2ceab9dc4df__get_design_context",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(gh pr create --title 'feat: Hub 1.0.0 — navbar, nav, platforms & onboarding polish' --body ' *)",
+      "Bash(git merge Hub-1.0.0 --no-ff -m ' *)",
+      "Bash(git fetch *)",
+      "Bash(gh pr *)",
+      "Bash(git ls-remote *)"
+    ]
+  }
+}
